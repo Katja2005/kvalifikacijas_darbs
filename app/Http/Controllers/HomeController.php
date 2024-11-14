@@ -1,0 +1,36 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Models\Room;
+use App\Models\Reservation;
+
+class HomeController extends Controller
+{
+
+
+public function bookRoom($id){
+$room=Room::find($id);
+
+return view('main.rooms_reservation',compact('room'));
+    }
+
+
+
+public function makeReservation(Request $request , $id){
+$reservation = new Reservation;
+$reservation->room_id=$id;
+$reservation->name = $request->name;
+$reservation->surname = $request->surname;
+$reservation->email = $request->email;
+$reservation->phone = $request->phone;
+$reservation->start_date = $request->start_date;
+$reservation->end_date = $request->end_date;
+
+
+$reservation->save();
+return redirect()->back()->with('Rezervacija ir veiksmīga');
+
+}
+}
