@@ -5,9 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reservation</title>
+    <link rel="stylesheet" href="css/app.css">
+    <style>
+
+
+    </style>
 </head>
 <body>
     <h1>Make reservattion</h1>
+    @if(session()->has('message'))
+   <div class="message">{{session()->get('message')}}</div> 
+    @endif
+
     <form action="{{route('makeReservation',$room->id)}}" method="post">
         @csrf
         
@@ -17,19 +26,19 @@
 <div class="reservation">
     <div>       
 <label for="name">Name</label>
-<input type="name" name="name">
+<input type="name" name="name" @if(Auth::id()) value="{{Auth::user()->name}}" @endif required>
 </div> 
 <div>       
 <label for="surname">Surname</label>
-<input type="surname" name="surname">
+<input type="surname" name="surname" @if(Auth::id()) value="{{Auth::user()->surname}}" @endif required>
 </div> 
 <div>       
 <label for="email">Email</label>
-<input type="email" name="email">
+<input type="email" name="email" @if(Auth::id()) value="{{Auth::user()->email}}" @endif required>
 </div> 
 <div>       
 <label for="phone">Phone</label>
-<input type="phone" name="phone">
+<input type="phone" name="phone" @if(Auth::id()) value="{{Auth::user()->phone}}" @endif required>
 </div> 
 <div>       
 <label for="start_date">Start Date</label>

@@ -19,6 +19,8 @@ return view('main.rooms_reservation',compact('room'));
 
 
 public function makeReservation(Request $request , $id){
+
+
 $reservation = new Reservation;
 $reservation->room_id=$id;
 $reservation->name = $request->name;
@@ -28,9 +30,26 @@ $reservation->phone = $request->phone;
 $reservation->start_date = $request->start_date;
 $reservation->end_date = $request->end_date;
 
+$startDate= $request->start_date;
+$endDate = $request->end_date;
+
+$reserved = Reservation::where('room_id', $id)
+->where('start_date','<=',$endDate)
+->where('end_date','<=',$startDate)->exists();
+
+
+if($reserved){
+    return redirect()->back()->with('message','Šis numurs nav pieejams,mēģiniet citās datumos  ');
+}
+else{
+    $reservation->start_date = $request->start_date;
+$reservation->end_date = $request->end_date;
+
+}
+
 
 $reservation->save();
-return redirect()->back()->with('Rezervacija ir veiksmīga');
+return redirect()->back()->with('message','Rezervacija ir veiksmīga');
 
 }
 }

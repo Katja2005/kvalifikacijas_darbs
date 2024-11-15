@@ -5,13 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main page</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <style>
+.background {
+    background-image: url('{{ asset("storage/room/preview.jpg") }}');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    position: relative;
+    flex-direction: column;
+}
 
 
+    </style>
 
     
 </head>
 <body >
-
+<div class="background">
   <div class="logo">
     <a href="{{url('/')}}">
   <img src="{{ asset('storage/room/preview (2).webp') }}" alt="Logo">
@@ -21,13 +37,17 @@
 
 <header>
 
-    
+    <div class="header-content">
 <h1 class="main-title">Baltic Breeze Hotel</h1>
         
             <nav class="center-nav">
            
             <a href="{{ route('rooms') }}" class="nav-link">Rooms</a>
             </nav>
+            </div>
+            </div>
+
+          
             
             <div class="header-nav">
             @if (Route::has('login'))
@@ -52,5 +72,6 @@
                @endif 
                 </div>
                 </header> 
+                </div>
                 </body>
                 </html>
