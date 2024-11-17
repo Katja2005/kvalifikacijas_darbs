@@ -12,14 +12,16 @@
     
 </x-app-layout>
 
-<a href="{{route('createRoom')}}">Add room</a>
-<br></br>
-<a href="{{route('showRoom')}}">Show rooms</a>
-<br></br>
-<a href="{{route('reservations')}}">Reservations</a>
-<br></br>
-<a href="{{url('/')}}">To main page</a>
+<div class="panel">
+    <h1>Administratora panelis</h1>
+<a href="{{route('createRoom')}}">Izveidot numuru</a>
 
+<a href="{{route('showRoom')}}">Numuri</a>
+
+<a href="{{route('reservations')}}">Rezervacijas</a>
+
+<a href="{{url('/')}}">Galvena lapa</a>
+</div>
 
 <body>
     

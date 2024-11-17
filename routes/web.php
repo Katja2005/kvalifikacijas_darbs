@@ -27,3 +27,5 @@ Route::get('/bookRoom/{id}', [HomeController::class,'bookRoom'])->name('bookRoom
 Route::post('/makeReservation/{id}', [HomeController::class,'makeReservation'])->name('makeReservation');
 Route::get('reservations',[AdminController::class,'reservations'])->name('reservations');
 Route::put('/updateStatus/{id}', [AdminController::class,'updateStatus'])->name('updateStatus');
+Route::get('contacts', [HomeController::class,'contacts'])->name('contacts');
+Route::get('myReservations', [HomeController::class,'myReservations'])->name('myReservations');

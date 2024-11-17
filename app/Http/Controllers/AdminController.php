@@ -50,8 +50,8 @@ public function addRoom(Request $request){
       'title' => 'required|string|max:255',
       'description' => 'required|string',
       'price' => 'required|numeric',
-      'type' => 'required|string',
-      'breakfast' => 'required|string',
+      'type' => 'required|string|in:Standart,Deluxe,Premium',
+      'breakfast' => 'required|string|in:included,non-included',
       'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
   ]);
 
@@ -113,8 +113,8 @@ public function updateRoom( Request $request, $id){
       'title'=>'required|string|max:255',
       'description'=>'required|string',
       'price'=>'required|numeric',
-      'type'=>'required|string',
-      'breakfast'=>'required|string',
+      'type'=>'required|string|in:Standart,Deluxe,Premium',
+      'breakfast'=>'required|string|in:included,non-included',
       'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
    ]);
 

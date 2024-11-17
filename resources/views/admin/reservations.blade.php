@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reservations</title>
+    <title>Rezervacijas</title>
+    <link rel="stylesheet" href="css/app.css">
+    
 </head>
 <body>
-    <h1>Users reservations</h1>
+    
     @if(session()->has('message'))
    <div class="message">{{session()->get('message')}}</div> 
     @endif
@@ -14,15 +16,15 @@
 <table class="table2">
 <thead>
 <tr>
-<th>Reservation status</th>
-<th>Room ID</th>
-<th>User name</th>
-<th>Surname</th>
-<th>Email</th>
-<th>Phone</th>
-<th>Start date</th>
-<th>End date</th>
-<th>Total price</th>
+<th>Rezervacijas status</th>
+<th>Numura ID</th>
+<th>Lietotāja vārds</th>
+<th>Uzvārds</th>
+<th>Epasts</th>
+<th>Telefona numurs</th>
+<th>Iebraukšanas datums</th>
+<th>Izbraukšanas datums</th>
+<th>Kopejā cena</th>
 
 </tr>
 
@@ -39,7 +41,8 @@
         <option value="confirmed"{{$reservation->status == 'confirmed' ? 'selected' : ''}}>Confirmed</option>
         <option value="cancel" {{$reservation->status == 'cancel' ? 'selected' : ''}}>Cancel</option>
     </select>
-    <button type="submit">Save</button>
+    <br></br>
+    <button type="submit" >Saglabāt</button>
 </form>
 </td>
 <td>{{ $reservation->room_id }}</td>
@@ -66,7 +69,7 @@
 
 </table>
 
-<a href="{{route('main')}}" class="back">Back</a>
+<a href="{{route('main')}}" class="back">Atpakaļ</a>
 
 </div>
 

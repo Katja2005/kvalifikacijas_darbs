@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reservation</title>
+    <title>Rezervacija</title>
     <link rel="stylesheet" href="css/app.css">
     <style>
 
@@ -12,7 +12,7 @@
     </style>
 </head>
 <body>
-    <h1>Make reservattion</h1>
+    <h1>Izveidot rezervaciju</h1>
     @if(session()->has('message'))
    <div class="message">{{session()->get('message')}}</div> 
     @endif
@@ -25,33 +25,33 @@
 </html>
 <div class="reservation">
     <div>       
-<label for="name">Name</label>
+<label for="name">Vārds:</label>
 <input type="name" name="name" @if(Auth::id()) value="{{Auth::user()->name}}" @endif required>
 </div> 
 <div>       
-<label for="surname">Surname</label>
+<label for="surname">Uzvārds:</label>
 <input type="surname" name="surname" @if(Auth::id()) value="{{Auth::user()->surname}}" @endif required>
 </div> 
 <div>       
-<label for="email">Email</label>
+<label for="email">Epasts:</label>
 <input type="email" name="email" @if(Auth::id()) value="{{Auth::user()->email}}" @endif required>
 </div> 
 <div>       
-<label for="phone">Phone</label>
+<label for="phone">Telefona numurs:</label>
 <input type="phone" name="phone" @if(Auth::id()) value="{{Auth::user()->phone}}" @endif required>
 </div> 
 <div>       
-<label for="start_date">Start Date</label>
+<label for="start_date">Iebraukšanas datums:</label>
 <input type="date" name="start_date" id="start_date">
 </div> 
 <div>       
-<label for="end_date">End Date</label>
+<label for="end_date">Izbraukšanas datums:</label>
 <input type="date" name="end_date" id="end_date">
 </div>
-<button type="submit">Book</button>
+<button type="submit">Rezervēt</button>
 </div> 
 </form>
-<a href="{{route('rooms')}}">Back to rooms</a>
+<a href="{{route('rooms')}}">Atpakaļ pie numuriem</a>
 <script>
 
 const today = new Date().toISOString().split('T')[0];

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Room;
 use App\Models\Reservation;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -62,5 +63,17 @@ $reservation->total_price = $nights * $room->price;
 $reservation->save();
 return redirect()->back()->with('message','Rezervacija ir veiksmīga, kopējā cena: €' .$reservation->total_price );
 
+}
+
+
+public function contacts(){
+    return view('main.contacts');
+}
+
+
+public function myReservations(){
+    $reservation = Reservation::where ('email', Auth::user()->email)->get();
+
+    return view('main.my_reservations',compact('reservation'));
 }
 }

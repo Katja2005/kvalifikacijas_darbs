@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main page</title>
+    <title>Baltic Breeze Hotel</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <style>
 .background {
@@ -42,7 +42,11 @@
         
             <nav class="center-nav">
            
-            <a href="{{ route('rooms') }}" class="nav-link">Rooms</a>
+            <a href="{{ route('rooms') }}" class="nav-link">Numuri</a>
+            <a href="{{ route('contacts') }}" class="nav-link">Kontakti</a>
+            @auth
+            <a href="{{ route('myReservations') }}" class="nav-link">Manas rezervacijas</a>
+            @endauth
             </nav>
             </div>
             </div>
@@ -58,13 +62,13 @@
                 @else
                     <form action="{{ url('login') }}" method="get" style="display: inline;">
                     @csrf
-                    <button type="submit">Login</button>
+                    <button type="submit">Ieiet</button>
                     
                     </form>
                     @if (Route::has('register'))
                     <form action="{{ url('register') }}" method="get" style="display: inline;">
                     @csrf
-                    <button type="submit">Register</button>
+                    <button type="submit">Reģistrēties</button>
                   
                     </form>
                     @endif

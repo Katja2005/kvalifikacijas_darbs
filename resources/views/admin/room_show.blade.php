@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rooms</title>
+    <title>Numuri</title>
     <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
@@ -12,13 +12,13 @@
 <table class="table">
 <thead>
 <tr>
-<th>Actions</th>
-<th>Room title</th>
-<th>Description</th>
-<th>Price</th>
-<th>Room type</th>
-<th>Breakfast</th>
-<th>Image</th>
+<th>Darbības</th>
+<th>Numura nosaukums</th>
+<th>Apraksts</th>
+<th>Cena par vienu nakti</th>
+<th>Numura tips</th>
+<th>Brokastis</th>
+<th>Bilde</th>
 </tr>
 
 
@@ -26,22 +26,22 @@
 <tr>
 
 <td>
-<form action="{{ route('deleteRoom', $room->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete the selected rooms?');">
+<form action="{{ route('deleteRoom', $room->id) }}" method="POST" onsubmit="return confirm('Jūs esat pārliecināti, ka gribāt noņemt šo numuru?');">
             @csrf
             @method('DELETE')
-            <button type="submit" class="delete">Delete</button>
+            <button type="submit" class="delete">Noņemt</button>
             </form>
             
 <br></br>
              
             <form action="{{ route('editRoom', $room->id) }}" method="GET" >
-            <button type="submit" class="delete">Edit</button>
+            <button type="submit" class="delete">Rediģēt</button>
             </form>
             <!---<a href="{{ route('editRoom', $room->id) }} " >Edit</a>-->
 </td>
 <td>{{ $room->title }}</td>
 <td>{{ $room->description }}</td>
-<td>€{{ $room->price }}</td>
+<td>{{ $room->price }}€</td>
 <td>{{ $room->type }}</td>
 <td>{{ $room->breakfast }}</td>
 <td>
@@ -64,7 +64,7 @@ No image
 
 </table>
 
-<a href="{{route('main')}}" class="back">Back</a>
+<a href="{{route('main')}}" class="back">Atpakaļ</a>
 
 </div>
 
