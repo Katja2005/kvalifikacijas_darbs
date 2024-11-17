@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('surname')->nullable();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
+            $table->string('status')->default('pending');
             $table->string('start_date')->nullable();
             $table->string('end_date')->nullable();
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Room;
 use App\Models\Reservation;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -30,6 +31,8 @@ $reservation->phone = $request->phone;
 $reservation->start_date = $request->start_date;
 $reservation->end_date = $request->end_date;
 
+
+$room = Room::findOrFail($id);
 $startDate= $request->start_date;
 $endDate = $request->end_date;
 
@@ -48,8 +51,16 @@ $reservation->end_date = $request->end_date;
 }
 
 
+//aprēķina kopēju cenu pēc nakšu skaita . Cena par vienu nakti * naktis
+$start=Carbon::parse($request->start_date);
+$end=Carbon::parse($request->end_date);
+$nights=$start->diffInDays($end);
+
+$reservation->total_price = $nights * $room->price;
+
+
 $reservation->save();
-return redirect()->back()->with('message','Rezervacija ir veiksmīga');
+return redirect()->back()->with('message','Rezervacija ir veiksmīga, kopējā cena: €' .$reservation->total_price );
 
 }
 }

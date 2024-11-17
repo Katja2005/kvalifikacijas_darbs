@@ -1,5 +1,15 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rooms</title>
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
 <div class="container2">
-<table>
+<table class="table">
 <thead>
 <tr>
 <th>Actions</th>
@@ -19,13 +29,13 @@
 <form action="{{ route('deleteRoom', $room->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete the selected rooms?');">
             @csrf
             @method('DELETE')
-            <button type="submit">Delete</button>
+            <button type="submit" class="delete">Delete</button>
             </form>
             
-
+<br></br>
              
             <form action="{{ route('editRoom', $room->id) }}" method="GET" >
-            <button type="submit">Edit</button>
+            <button type="submit" class="delete">Edit</button>
             </form>
             <!---<a href="{{ route('editRoom', $room->id) }} " >Edit</a>-->
 </td>
@@ -54,6 +64,16 @@ No image
 
 </table>
 
-<a href="{{route('main')}}">Back</a>
+<a href="{{route('main')}}" class="back">Back</a>
 
 </div>
+
+
+    
+</body>
+</html>
+
+
+
+
+

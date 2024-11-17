@@ -25,3 +25,5 @@ Route::put('/updateRoom/{id}', [AdminController::class,'updateRoom'])->name('upd
 Route::get('rooms', [AdminController::class,'rooms'])->name('rooms');
 Route::get('/bookRoom/{id}', [HomeController::class,'bookRoom'])->name('bookRoom');
 Route::post('/makeReservation/{id}', [HomeController::class,'makeReservation'])->name('makeReservation');
+Route::get('reservations',[AdminController::class,'reservations'])->name('reservations');
+Route::put('/updateStatus/{id}', [AdminController::class,'updateStatus'])->name('updateStatus');

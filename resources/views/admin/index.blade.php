@@ -16,6 +16,8 @@
 <br></br>
 <a href="{{route('showRoom')}}">Show rooms</a>
 <br></br>
+<a href="{{route('reservations')}}">Reservations</a>
+<br></br>
 <a href="{{url('/')}}">To main page</a>
 
 

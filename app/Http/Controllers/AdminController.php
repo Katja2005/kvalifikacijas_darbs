@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Room;
+use App\Models\Reservation;
 
 class AdminController extends Controller
 {
@@ -149,4 +150,22 @@ public function rooms(){
 
    return view ('main.rooms_index',compact('room'));
 }
+
+
+
+public function reservations(){
+
+   $reservation=Reservation::all();
+   return view('admin.reservations',compact('reservation'));
+}
+
+public function updateStatus(Request $request, $id){
+$reservation=Reservation::findOrFail($id);
+
+$reservation->status=$request->status;
+$reservation->save();
+return redirect()->route('reservations')->with('message', 'Rezervacijas statuss ir izmainīts');
+}
+
+
 }

@@ -12,7 +12,9 @@ class Reservation extends Model
         'surname',
         'email',
         'phone',
+        'status',
         'start_date',
         'end_date',
+        'total_price',
     ]; 
 }
