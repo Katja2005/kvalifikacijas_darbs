@@ -52,7 +52,7 @@ public function addRoom(Request $request){
       'price' => 'required|numeric',
       'type' => 'required|string|in:Standart,Deluxe,Premium',
       'breakfast' => 'required|string|in:included,non-included',
-      'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+      'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:8192',
   ]);
 
 

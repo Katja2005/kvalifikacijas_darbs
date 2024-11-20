@@ -211,12 +211,14 @@ button:hover {
         .form input[type='text'],
         .form select,
         .form textarea,
-        .form input[type='file']{
+        .form input[type='file'],
+        .form input[type='number']{
             width: 80%;
             padding: 10px;
             margin-bottom: 15px;
             border: 1px solid #ddd;
             border-radius: 5px;
+            color: black;
         }
 
 
