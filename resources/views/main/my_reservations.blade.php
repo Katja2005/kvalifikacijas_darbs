@@ -32,7 +32,7 @@
 <td>{{$reservation->room->description}}</td>
 <td>
 @if($reservation->room->image)
-<img src="{{ asset('images/' . $reservation->room->image) }}" alt="Room Image" width="100">
+<img src="{{ asset('storage/' . $reservation->room->image) }}" alt="Room Image" width="100">
 @else
 No image
  @endif

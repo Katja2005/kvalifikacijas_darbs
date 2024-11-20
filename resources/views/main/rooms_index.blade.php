@@ -20,7 +20,7 @@
 
     <div class="room-card">
         <div class="room-info">
-    <img src="{{ asset('images/' . $room->image) }}" alt="Room Image">
+    <img src="{{ asset('storage/' . $room->image) }}" alt="Room Image">
     <h3>{{ $room->title }}</h3>
     <p><strong>{{ $room->description }}</strong></p>
     <p><strong>Numura tips: {{ $room->type }}</strong></p>

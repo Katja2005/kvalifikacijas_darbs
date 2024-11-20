@@ -50,7 +50,7 @@
                 <input type="file" name="image" id="image" accept="image/*" >
                 @if($room->image)
             <p>Tagadēja bilde:</p>
-            <img src="{{ asset('images/' . $room->image) }}" width="100">
+            <img src="{{ asset('storage/' . $room->image) }}" width="100">
         @endif
             </div>
             <button type="submit">Saglabāt izmaiņas</button>
