@@ -30,10 +30,16 @@
         <tr>
 <td>{{$reservation->room->title}}</td>
 <td>{{$reservation->room->description}}</td>
-<td>{{$reservation->room->image}}</td>
+<td>
+@if($reservation->room->image)
+<img src="{{ asset('storage/' . $reservation->room->image) }}" alt="Room Image" width="100">
+@else
+No image
+ @endif
+</td>
 <td>{{$reservation->start_date}}</td>
 <td>{{$reservation->end_date}}</td>
-<td>{{$reservation->total_price}}</td>
+<td>{{$reservation->total_price}}€</td>
 <td>{{$reservation->status}}</td>
 
         </tr>

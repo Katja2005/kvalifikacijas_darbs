@@ -1,4 +1,6 @@
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 [x-cloak] {
     display: none;
@@ -125,6 +127,7 @@ button:hover {
         .room-title{
             text-align: center;
             color: #3972b4;
+           font-size: 40px;
             
         }
 
@@ -302,3 +305,9 @@ button:hover {
             text-transform: uppercase;
         }
         
+        .alert{
+            font-weight: bold;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size:25px;
+         
+        }

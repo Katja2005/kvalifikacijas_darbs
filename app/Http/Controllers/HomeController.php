@@ -13,6 +13,9 @@ class HomeController extends Controller
 
 
 public function bookRoom($id){
+    if(!auth()->check()){
+        return redirect()->route('login')->with('error', 'Lai veiktu rezervaciju,lūdzu,reģistrejies vai autorizejies');
+    }
 $room=Room::find($id);
 
 return view('main.rooms_reservation',compact('room'));
@@ -72,6 +75,7 @@ public function contacts(){
 
 
 public function myReservations(){
+
     $reservation = Reservation::where ('email', Auth::user()->email)->get();
 
     return view('main.my_reservations',compact('reservation'));

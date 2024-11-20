@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Numuri</title>
-    <link rel="stylesheet" href="css/app.css">
+    @vite('resources/css/app.css')
 </head>
 <body>
 <div class="container2">
@@ -37,7 +37,7 @@
             <form action="{{ route('editRoom', $room->id) }}" method="GET" >
             <button type="submit" class="delete">Rediģēt</button>
             </form>
-            <!---<a href="{{ route('editRoom', $room->id) }} " >Edit</a>-->
+            
 </td>
 <td>{{ $room->title }}</td>
 <td>{{ $room->description }}</td>

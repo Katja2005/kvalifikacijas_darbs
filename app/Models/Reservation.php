@@ -17,4 +17,10 @@ class Reservation extends Model
         'end_date',
         'total_price',
     ]; 
+
+
+    public function room()
+    {
+        return $this->belongsTo(Room::class);
+    }
 }
