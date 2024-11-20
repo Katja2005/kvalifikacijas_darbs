@@ -69,7 +69,7 @@ public function addRoom(Request $request){
       $image = $request->file('image');
 
       // Pārsauc attēlu un saglabā to 'public' direktorijā
-      $imagePath = $image->store('room', 'public');  // Saglabā attēlu 'storage/app/public/room'
+      $imagePath = $image->store('images', 'public');  // Saglabā attēlu 'storage/app/public/room'
 
       // Saglabājiet attēla ceļu datubāzē
       $room->image = $imagePath;
@@ -129,7 +129,7 @@ public function updateRoom( Request $request, $id){
       $image = $request->file('image');
 
       // Pārsauc attēlu un saglabā to 'public' direktorijā
-      $imagePath = $image->store('room', 'public');  // Saglabā attēlu 'storage/app/public/room'
+      $imagePath = $image->store('images', 'public');  // Saglabā attēlu 'storage/app/public/room'
 
       // Saglabājiet attēla ceļu datubāzē
       $room->image = $imagePath;

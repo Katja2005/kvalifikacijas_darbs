@@ -10,7 +10,7 @@
 <body>
 <div class="logo">
     <a href="{{url('/')}}">
-  <img src="{{ asset('storage/room/preview (2).webp') }}" alt="Logo">
+  <img src="{{ asset('images/preview (2).webp') }}" alt="Logo">
   </a>
     <h1 class="room-title">Mūsu numuri</h1>
   
@@ -20,7 +20,7 @@
 
     <div class="room-card">
         <div class="room-info">
-    <img src="{{ asset('storage/' . $room->image) }}" alt="Room Image">
+    <img src="{{ asset('images/' . $room->image) }}" alt="Room Image">
     <h3>{{ $room->title }}</h3>
     <p><strong>{{ $room->description }}</strong></p>
     <p><strong>Numura tips: {{ $room->type }}</strong></p>

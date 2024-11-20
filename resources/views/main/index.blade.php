@@ -7,7 +7,7 @@
     @vite('resources/css/app.css')
     <style>
 .background {
-    background-image: url('{{ asset("storage/room/preview.jpg") }}');
+    background-image: url('{{ asset("images/preview.jpg") }}');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -30,7 +30,7 @@
 <div class="background">
   <div class="logo">
     <a href="{{url('/')}}">
-  <img src="{{ asset('storage/room/preview (2).webp') }}" alt="Logo">
+  <img src="{{ asset('images/preview (2).webp') }}" alt="Logo">
   </a>
     </div>
     
