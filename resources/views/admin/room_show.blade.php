@@ -22,7 +22,7 @@
 </tr>
 
 
-@foreach($room as $room)
+@foreach($rooms as $room)
 <tr>
 
 <td>

@@ -29,7 +29,7 @@
 </tr>
 
 
-@foreach($reservation as $reservation)
+@foreach($reservations as $reservation)
 <tr>
 
 <td><form action="{{route('updateStatus', $reservation->id)}}" method="post" >
@@ -37,9 +37,9 @@
     @method('PUT')
 
     <select name="status" id="status">
-        <option value="pending" {{$reservation->status == 'pending' ? 'selected' : ''}}>Pending</option>
-        <option value="confirmed"{{$reservation->status == 'confirmed' ? 'selected' : ''}}>Confirmed</option>
-        <option value="cancel" {{$reservation->status == 'cancel' ? 'selected' : ''}}>Cancel</option>
+        <option value="Apstrāde" {{$reservation->status == 'Apstrāde' ? 'selected' : ''}}>Apstrāde</option>
+        <option value="Apstiprināta"{{$reservation->status == 'Apstiprināta' ? 'selected' : ''}}>Apstiprināta</option>
+        <option value="Atcelta" {{$reservation->status == 'Atcelta' ? 'selected' : ''}}>Atcelta</option>
     </select>
     <br></br>
     <button type="submit" >Saglabāt</button>

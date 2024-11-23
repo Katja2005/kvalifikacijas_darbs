@@ -16,7 +16,7 @@
   
 
     <div class="room-container">
-        @foreach($room as $room)
+        @foreach($rooms as $room)
 
     <div class="room-card">
         <div class="room-info">
@@ -25,7 +25,7 @@
     <p><strong>{{ $room->description }}</strong></p>
     <p><strong>Numura tips: {{ $room->type }}</strong></p>
     <p><strong>Cena: {{ $room->price}}€</strong></p>
-    <p><strong>Brokastis: {{ $room->breakfast == 'included' ? 'Iekļauts' : 'Nav iekļauts' }}</strong></p>
+    <p><strong>Brokastis: {{ $room->breakfast == 'Iekļauts' ? 'Iekļauts' : 'Nav iekļauts' }}</strong></p>
     
     @if(auth()->check())
     <form action="{{route('bookRoom', $room->id)}}" method="get">

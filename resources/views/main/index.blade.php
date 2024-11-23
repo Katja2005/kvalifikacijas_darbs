@@ -47,6 +47,7 @@
             @auth
             <a href="{{ route('myReservations') }}" class="nav-link">Manas rezervacijas</a>
             @endauth
+            <a href="{{route('reviews')}}" class="nav-link" >Atsauksmes</a>
             </nav>
             </div>
             </div>

@@ -67,4 +67,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+
+    public function review()
+{
+    return $this->belongsTo(Review::class);
+}
 }

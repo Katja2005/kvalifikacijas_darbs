@@ -10,6 +10,9 @@
         <h1>Manas Rezervacijas</h1>
         @if($reservation->isEmpty())
         <p>Jūms nav rezervacijas!</p>
+        @if(session()->has('message'))
+   <div class="message">{{session()->get('message')}}</div> 
+    @endif
         @else
         <table>
             <thead>
@@ -22,6 +25,7 @@
                 <th>Izbraukšsanas datums</th>
                 <th>Kopejā cena</th>
                 <th>Status</th>
+                <th>Darbība</th>
 
                 </tr>
             </thead>
@@ -41,6 +45,14 @@ No image
 <td>{{$reservation->end_date}}</td>
 <td>{{$reservation->total_price}}€</td>
 <td>{{$reservation->status}}</td>
+<td>
+    <form action="{{route('deleteReservation', $reservation->id)}}" method="post" onsubmit="return confirm('Jūs esat pārliecināti, ka gribāt atcelt šo rezervaciju?');">
+        @csrf
+        @method('DELETE')
+        <button type="submit">Atcelt rezervaciju</button>
+    </form>
+
+</td>
 
         </tr>
         @endforeach
@@ -48,6 +60,8 @@ No image
            
         </table>
         @endif
+
+        <a href="{{route('main')}}">Atpakaļ</a>
     </div>
 </body>
 </html>

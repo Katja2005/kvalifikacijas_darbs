@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Room;
 use App\Models\Reservation;
+use App\Models\Review;
 
 class AdminController extends Controller
 {
@@ -20,8 +21,8 @@ public function index(){
 
  if($role=='user'){
 
-   $room=Room::all();
-    return view('main.index', compact('room'));
+   $rooms=Room::all();
+    return view('main.index', compact('rooms'));
  }
 
  else if($role=='admin'){
@@ -35,10 +36,10 @@ public function index(){
 }
 
 public function main(){
-   $room=Room::all();
+   $rooms=Room::all();
 
 
-   return view ('main.index',compact('room'));
+   return view ('main.index',compact('rooms'));
 }
 
 public function createRoom(){
@@ -51,7 +52,7 @@ public function addRoom(Request $request){
       'description' => 'required|string',
       'price' => 'required|numeric',
       'type' => 'required|string|in:Standart,Deluxe,Premium',
-      'breakfast' => 'required|string|in:included,non-included',
+      'breakfast' => 'required|string|',
       'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:8192',
   ]);
 
@@ -69,7 +70,7 @@ public function addRoom(Request $request){
       $image = $request->file('image');
 
       // Pārsauc attēlu un saglabā to 'public' direktorijā
-      $imagePath = $image->store('images', 'public');  // Saglabā attēlu 'storage/app/public/room'
+      $imagePath = $image->store('storage', 'public');  // Saglabā attēlu 'storage/app/public/room'
 
       // Saglabājiet attēla ceļu datubāzē
       $room->image = $imagePath;
@@ -84,8 +85,8 @@ return view('admin.index');
 
 public function showRoom(){
 
-   $room=Room::all();
-   return view('admin.room_show',compact('room'));
+   $rooms=Room::all();
+   return view('admin.room_show',compact('rooms'));
 }
 
 public function deleteRoom($id){
@@ -114,7 +115,7 @@ public function updateRoom( Request $request, $id){
       'description'=>'required|string',
       'price'=>'required|numeric',
       'type'=>'required|string|in:Standart,Deluxe,Premium',
-      'breakfast'=>'required|string|in:included,non-included',
+      'breakfast'=>'required|string|',
       'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
    ]);
 
@@ -129,7 +130,7 @@ public function updateRoom( Request $request, $id){
       $image = $request->file('image');
 
       // Pārsauc attēlu un saglabā to 'public' direktorijā
-      $imagePath = $image->store('images', 'public');  // Saglabā attēlu 'storage/app/public/room'
+      $imagePath = $image->store('storage', 'public');  // Saglabā attēlu 'storage/app/public/room'
 
       // Saglabājiet attēla ceļu datubāzē
       $room->image = $imagePath;
@@ -144,19 +145,19 @@ public function updateRoom( Request $request, $id){
 
 public function rooms(){
 
-   $room=Room::all();
+   $rooms=Room::all();
 
 
 
-   return view ('main.rooms_index',compact('room'));
+   return view ('main.rooms_index',compact('rooms'));
 }
 
 
 
 public function reservations(){
 
-   $reservation=Reservation::all();
-   return view('admin.reservations',compact('reservation'));
+   $reservations=Reservation::all();
+   return view('admin.reservations',compact('reservations'));
 }
 
 public function updateStatus(Request $request, $id){
@@ -167,5 +168,11 @@ $reservation->save();
 return redirect()->route('reservations')->with('message', 'Rezervacijas statuss ir izmainīts');
 }
 
+
+
+public function userReviews(){
+   $reviews= Review::with('user')->latest()->get();
+   return view('admin.reviews',compact('reviews'));
+}
 
 }

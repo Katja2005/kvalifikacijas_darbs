@@ -45,8 +45,8 @@
             <div>
                 <label for="breakfast">Brokastis</label>
                 <select name="breakfast" id="breakfast" required>
-                    <option value="included">Iekļauts</option>
-                    <option value="non-included">Nav iekļauts</option>
+                    <option value="Iekļauts">Iekļauts</option>
+                    <option value="Nav iekļauts">Nav iekļauts</option>
                 </select>
             </div>
 

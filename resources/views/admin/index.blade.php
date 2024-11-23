@@ -20,6 +20,9 @@
 
 <a href="{{route('reservations')}}">Rezervacijas</a>
 
+<a href="{{route('userReviews')}}">Atsauksmes</a>
+
+
 <a href="{{url('/')}}">Galvena lapa</a>
 </div>
 
