@@ -61,7 +61,7 @@ No image
         </table>
         @endif
 
-        <a href="{{route('main')}}">Atpakaļ</a>
+        <a href="{{url('/')}}">Atpakaļ</a>
     </div>
 </body>
 </html>

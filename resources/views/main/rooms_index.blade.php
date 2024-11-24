@@ -7,6 +7,19 @@
     @vite('resources/css/app.css')
     
 </head>
+<style>
+    body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+h1, h3 {
+    font-weight: 600;
+    color: #2c3e50;
+}
+</style>
 <body>
 <div class="logo">
     <a href="{{url('/')}}">
@@ -42,6 +55,9 @@
     </div>
     @endforeach
     </div>
-    
+    <footer style="background-color: rgba(57, 114, 180, 0.8); color: white; padding: 15px 0; text-align: center;">
+    <p>&copy; 2024 Baltic Breeze Hotel. Visas tiesības aizsargātas.</p>
+   
+</footer>
 </body>
 </html>

@@ -6,7 +6,10 @@
     <title>Izveidot numuru</title>
     @vite('resources/css/app.css')
     <style>
-       
+       h1{
+        font-size:30px;
+        font-weight:bold;
+       }
     </style>
 </head>
 <body>

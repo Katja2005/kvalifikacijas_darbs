@@ -36,4 +36,4 @@ Route::delete('/deleteReservation/{id}', [ReservationController::class,'deleteRe
 Route::get('reviews', [ReviewController::class,'reviews'])->name('reviews');
 Route::post('/createReview', [ReviewController::class,'createReview'])->name('createReview');
 Route::get('userReviews', [AdminController::class,'userReviews'])->name('userReviews');
-
+Route::delete('/deleteReview/{id}', [AdminController::class,'deleteReview'])->name('deleteReview');

@@ -19,7 +19,7 @@
     @endif
 
 @auth
-<h2>Pievienot atsauskmi</h2>
+<h2>Pievienot atsaukskmi</h2>
 <form action="{{route('createReview')}}" method="post">
     @csrf
     <label for="rating">Vērtējums:</label>

@@ -175,4 +175,13 @@ public function userReviews(){
    return view('admin.reviews',compact('reviews'));
 }
 
+
+
+public function deleteReview($id){
+   $review = Review::find($id);
+   $review->delete();
+   return redirect()->route('main');
+
+}
+
 }

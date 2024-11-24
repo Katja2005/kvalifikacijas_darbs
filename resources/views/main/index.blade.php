@@ -7,7 +7,7 @@
     @vite('resources/css/app.css')
     <style>
 .background {
-    background-image: url('{{ asset("images/preview.jpg") }}');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('{{ asset("images/preview.jpg") }}');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -35,22 +35,23 @@
     </div>
     
 
-<header>
 
-    <div class="header-content">
 <h1 class="main-title">Baltic Breeze Hotel</h1>
-        
-            <nav class="center-nav">
+<p style="font-size: 1.5em; text-align: center; max-width: 600px;">
+            Piedzīvo neaizmirstamus mirkļus mūsu viesnīcā!
+        </p>
+        <br></br>
+            <nav>
            
             <a href="{{ route('rooms') }}" class="nav-link">Numuri</a>
-            <a href="{{ route('contacts') }}" class="nav-link">Kontakti</a>
+            
             @auth
             <a href="{{ route('myReservations') }}" class="nav-link">Manas rezervacijas</a>
             @endauth
             <a href="{{route('reviews')}}" class="nav-link" >Atsauksmes</a>
+            <a href="{{ route('contacts') }}" class="nav-link">Kontakti</a>
             </nav>
-            </div>
-            </div>
+         
 
           
             
@@ -75,8 +76,11 @@
                     @endif
                 @endauth
                @endif 
+                </div> 
                 </div>
-                </header> 
-                </div>
+                <footer style="background-color: rgba(57, 114, 180, 0.8); color: white; padding: 15px 0; text-align: center;">
+    <p>&copy; 2024 Baltic Breeze Hotel. Visas tiesības aizsargātas.</p>
+   
+</footer>
                 </body>
                 </html>
