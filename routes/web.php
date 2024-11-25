@@ -8,7 +8,7 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Middleware\CheckRole;
 
 
-App::make('router')->aliasMiddleware('role', CheckRole::class);
+App::make('router')->aliasMiddleware('role', \App\Http\Middleware\CheckRole::class);
 
 Route::get('/', [HomeController::class,'main']);
 Route::get('/main',[HomeController::class, 'index'])->name('main');
