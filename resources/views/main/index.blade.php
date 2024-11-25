@@ -46,7 +46,9 @@
             <a href="{{ route('rooms') }}" class="nav-link">Numuri</a>
             
             @auth
+            @if (Auth::user()->role === 'user')
             <a href="{{ route('myReservations') }}" class="nav-link">Manas rezervacijas</a>
+            @endif
             @endauth
             <a href="{{route('reviews')}}" class="nav-link" >Atsauksmes</a>
             <a href="{{ route('contacts') }}" class="nav-link">Kontakti</a>
