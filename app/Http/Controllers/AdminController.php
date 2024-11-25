@@ -12,35 +12,6 @@ use App\Models\Review;
 class AdminController extends Controller
 {
 
-public function index(){
-
-    if(Auth::id())
-{
- $role= Auth()->user()->role;
-
-
- if($role=='user'){
-
-   $rooms=Room::all();
-    return view('main.index', compact('rooms'));
- }
-
- else if($role=='admin'){
-    return view ('admin.index');
- }
- else{
-    return redirect()->back();
- }
-
-}
-}
-
-public function main(){
-   $rooms=Room::all();
-
-
-   return view ('main.index',compact('rooms'));
-}
 
 public function createRoom(){
    return view ('admin.room_create');
@@ -143,14 +114,7 @@ public function updateRoom( Request $request, $id){
 
 
 
-public function rooms(){
 
-   $rooms=Room::all();
-
-
-
-   return view ('main.rooms_index',compact('rooms'));
-}
 
 
 

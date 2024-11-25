@@ -32,7 +32,7 @@
             <button type="submit" class="delete">Noņemt</button>
             </form>
             
-<br></br>
+
              
             <form action="{{ route('editRoom', $room->id) }}" method="GET" >
             <button type="submit" class="delete">Rediģēt</button>
@@ -46,7 +46,7 @@
 <td>{{ $room->breakfast }}</td>
 <td>
 @if($room->image)
-<img src="{{ asset('storage/' . $room->image) }}" alt="Room Image" width="100">
+<img src="{{ asset('storage/' . $room->image) }}" alt="Room Image" width="800">
 @else
 No image
  @endif

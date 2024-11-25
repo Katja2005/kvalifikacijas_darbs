@@ -11,6 +11,47 @@ use App\Models\Review;
 
 class HomeController extends Controller
 {
+    
+    public function index(){
+
+        if(Auth::id())
+    {
+     $role= Auth()->user()->role;
+    
+    
+     if($role=='user'){
+    
+       $rooms=Room::all();
+        return view('main.index', compact('rooms'));
+     }
+    
+     else if($role=='admin'){
+        return view ('admin.index');
+     }
+     else{
+        return redirect()->back();
+     }
+    
+    }
+    }
+    
+    
+    
+    public function main(){
+        $rooms=Room::all();
+     
+     
+        return view ('main.index',compact('rooms'));
+     }
+
+     public function rooms(){
+
+        $rooms=Room::all();
+     
+     
+     
+        return view ('main.rooms_index',compact('rooms'));
+     }
 
 public function contacts(){
     return view('main.contacts');
