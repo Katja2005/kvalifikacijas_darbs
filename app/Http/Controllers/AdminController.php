@@ -18,7 +18,7 @@ public function createRoom(){
 }
 
 public function addRoom(Request $request){
-  $request->validate([
+  $data = $request->validate([
       'title' => 'required|string|max:255',
       'description' => 'required|string',
       'price' => 'required|numeric',
@@ -28,27 +28,15 @@ public function addRoom(Request $request){
   ]);
 
 
-   $room= new Room();
-
-   $room->title= $request->title;
-   $room->description= $request->description;
-   $room->price= $request->price;
-   $room->type= $request->type;
-   $room->breakfast= $request->breakfast;
-
    if ($request->hasFile('image')) {
       // Saņem augšupielādēto attēlu
       $image = $request->file('image');
 
       // Pārsauc attēlu un saglabā to 'public' direktorijā
-      $imagePath = $image->store('storage', 'public');  // Saglabā attēlu 'storage/app/public/room'
+      $data['image'] = $image->store('storage', 'public');  // Saglabā attēlu 'storage/app/public/room'
 
-      // Saglabājiet attēla ceļu datubāzē
-      $room->image = $imagePath;
   }
-
-  // Saglabā istabu datubāzē
-  $room->save();
+Room::create($data);
 
 return view('admin.index');
 }
@@ -81,34 +69,24 @@ public function editRoom($id){
 public function updateRoom( Request $request, $id){
    $room = Room::find($id);
 
-   $request->validate([
+   $data = $request->validate([
       'title'=>'required|string|max:255',
       'description'=>'required|string',
       'price'=>'required|numeric',
       'type'=>'required|string|in:Standart,Deluxe,Premium',
-      'breakfast'=>'required|string|',
+      'breakfast'=>'required|string|in:Iekļauts,Nav iekļauts',
       'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
    ]);
-
-   $room->title= $request->title;
-   $room->description= $request->description;
-   $room->price= $request->price;
-   $room->type= $request->type;
-   $room->breakfast= $request->breakfast;
 
    if ($request->hasFile('image')) {
       // Saņem augšupielādēto attēlu
       $image = $request->file('image');
 
       // Pārsauc attēlu un saglabā to 'public' direktorijā
-      $imagePath = $image->store('storage', 'public');  // Saglabā attēlu 'storage/app/public/room'
+      $data['image'] = $image->store('storage', 'public');  // Saglabā attēlu 'storage/app/public/room'
 
-      // Saglabājiet attēla ceļu datubāzē
-      $room->image = $imagePath;
-  }
-
-  // Saglabā istabu datubāzē
-  $room->save();
+   }
+$room->update($data);
   return redirect()->route('showRoom');
 }
 
@@ -126,9 +104,11 @@ public function reservations(){
 
 public function updateStatus(Request $request, $id){
 $reservation=Reservation::findOrFail($id);
+ $data = $request->validate([
+   'status' => 'required|string|in:Apstrāde,Apstiprināta,Atcelta',
+ ]);
 
-$reservation->status=$request->status;
-$reservation->save();
+ $reservation->update($data);
 return redirect()->route('reservations')->with('message', 'Rezervacijas statuss ir izmainīts');
 }
 

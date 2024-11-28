@@ -23,19 +23,16 @@ class ReservationController extends Controller
 
 
         public function makeReservation(Request $request , $id){
+$data = $request->validate([
+        'name' => 'required|string|max:255',
+        'surname' => 'required|string|max:255',
+        'email' => 'required|email',
+        'phone' => 'required|string|max:20',
+        'start_date' => 'required|date|after_or_equal:today',
+        'end_date' => 'required|date|after:start_date',
+]);
 
-
-            $reservation = new Reservation;
-            $reservation->room_id=$id;
-            $reservation->name = $request->name;
-            $reservation->surname = $request->surname;
-            $reservation->email = $request->email;
-            $reservation->phone = $request->phone;
-            $reservation->start_date = $request->start_date;
-            $reservation->end_date = $request->end_date;
-            
-            
-            $room = Room::findOrFail($id);
+         $room = Room::findOrFail($id);
             
             $start=Carbon::parse($request->start_date);
             $end=Carbon::parse($request->end_date);
@@ -60,11 +57,13 @@ class ReservationController extends Controller
             
             //aprēķina kopēju cenu pēc nakšu skaita . Cena par vienu nakti * naktis
             $nights=$start->diffInDays($end);
-            $reservation->total_price = $nights * $room->price;
+            $data['room_id'] = $id;
+            $data['total_price'] = $nights * $room->price;
             
-            
-            $reservation->save();
-            return redirect()->back()->with('message','Rezervacija ir veiksmīga, kopējā cena: €' .$reservation->total_price );
+
+        Reservation::create($data);
+    
+            return redirect()->back()->with('message','Rezervacija ir veiksmīga, kopējā cena: €' .$data['total_price'] );
             
             }
 

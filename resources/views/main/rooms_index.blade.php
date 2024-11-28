@@ -18,6 +18,14 @@
 h1, h3 {
     font-weight: 600;
     color: #2c3e50;
+
+    
+}
+
+
+a{
+    font-weight:bold;
+    color:blue;
 }
 </style>
 <body>

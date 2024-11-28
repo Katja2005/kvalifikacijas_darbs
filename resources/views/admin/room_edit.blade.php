@@ -40,8 +40,8 @@
             <div>
                 <label for="breakfast">Brokastis</label>
                 <select name="breakfast" id="breakfast" required>
-                    <option value="Iekļauts" {{ $room->breakfast == 'included' ? 'selected' : '' }}>Iekļauts</option>
-                    <option value="Nav iekļauts" {{ $room->breakfast == 'non-included' ? 'selected' : '' }}>Nav iekļauts</option>
+                    <option value="Iekļauts" {{ $room->breakfast == 'Iekļauts' ? 'selected' : '' }}>Iekļauts</option>
+                    <option value="Nav iekļauts" {{ $room->breakfast == 'Nav iekļauts' ? 'selected' : '' }}>Nav iekļauts</option>
                 </select>
             </div>
 
