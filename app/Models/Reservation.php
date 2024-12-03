@@ -8,10 +8,7 @@ class Reservation extends Model
 {
     protected $fillable = [
         'room_id',
-        'name',
-        'surname',
-        'email',
-        'phone',
+        'user_id',
         'status',
         'start_date',
         'end_date',
@@ -23,4 +20,14 @@ class Reservation extends Model
     {
         return $this->belongsTo(Room::class);
     }
+
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
+
+
+
+

@@ -8,7 +8,7 @@
 <body>
     <div class="box">
         <h1>Manas Rezervacijas</h1>
-        @if($reservation->isEmpty())
+        @if($reservations->isEmpty())
         <p>Jūms nav rezervacijas!</p>
         @if(session()->has('message'))
    <div class="message">{{session()->get('message')}}</div> 
@@ -30,7 +30,7 @@
                 </tr>
             </thead>
             <tbody>
-@foreach($reservation as $reservation)
+@foreach($reservations as $reservation)
         <tr>
 <td>{{$reservation->room->title}}</td>
 <td>{{$reservation->room->description}}</td>

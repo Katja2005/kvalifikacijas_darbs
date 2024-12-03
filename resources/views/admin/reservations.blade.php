@@ -46,10 +46,10 @@
 </form>
 </td>
 <td>{{ $reservation->room_id }}</td>
-<td>{{ $reservation->name }}</td>
-<td>{{ $reservation->surname }}</td>
-<td>{{ $reservation->email }}</td>
-<td>{{ $reservation->phone }}</td>
+<td>{{ $reservation->user->name }}</td>
+<td>{{ $reservation->user->surname }}</td>
+<td>{{ $reservation->user->email }}</td>
+<td>{{ $reservation->user->phone }}</td>
 <td>{{$reservation->start_date}}</td>
 <td>{{$reservation->end_date}}</td>
 <td>{{$reservation->total_price}} €</td>

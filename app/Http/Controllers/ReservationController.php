@@ -24,10 +24,6 @@ class ReservationController extends Controller
 
         public function makeReservation(Request $request , $id){
 $data = $request->validate([
-        'name' => 'required|string|max:255',
-        'surname' => 'required|string|max:255',
-        'email' => 'required|email',
-        'phone' => 'required|string|max:20',
         'start_date' => 'required|date|after_or_equal:today',
         'end_date' => 'required|date|after:start_date',
 ]);
@@ -57,9 +53,12 @@ $data = $request->validate([
             
             //aprēķina kopēju cenu pēc nakšu skaita . Cena par vienu nakti * naktis
             $nights=$start->diffInDays($end);
+
             $data['room_id'] = $id;
             $data['total_price'] = $nights * $room->price;
+            $data['user_id'] = auth()->id();
             
+
 
         Reservation::create($data);
     
@@ -70,9 +69,9 @@ $data = $request->validate([
 
             public function myReservations(){
 
-                $reservation = Reservation::where ('email', Auth::user()->email)->get();
+                $reservations = Reservation::with('user')->get();
             
-                return view('main.my_reservations',compact('reservation'));
+                return view('main.my_reservations',compact('reservations'));
             }
             
             

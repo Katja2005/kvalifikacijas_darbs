@@ -64,14 +64,14 @@
 
                     </x-app-layout>
                 @else
-                    <form action="{{ url('login') }}" method="get" style="display: inline;">
-                    @csrf
+                    <form action="{{ route('login') }}" method="GET" style="display: inline;">
+                    
                     <button type="submit">Ieiet</button>
                     
                     </form>
                     @if (Route::has('register'))
-                    <form action="{{ url('register') }}" method="get" style="display: inline;">
-                    @csrf
+                    <form action="{{ route('register') }}" method="GET" style="display: inline;">
+                   
                     <button type="submit">Reģistrēties</button>
                   
                     </form>
