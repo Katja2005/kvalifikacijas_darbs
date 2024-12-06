@@ -4,10 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update</title>
-    
+    @vite('resources/css/app.css')
+    <style>
+         h1{
+        font-size:30px;
+        font-weight:bold;
+       }
+       img {
+            margin-top: 10px;
+            border-radius: 5px;
+            display: block;
+        }
+    </style>
 </head>
 <body>
-    <h1>Rediģēt numuru</h1>
+    <div class="container3">
+        <div class="form">
+<h1>Rediģēt numuru</h1>
     <form action="{{ route('updateRoom', $room->id) }}" method="POST" enctype="multipart/form-data" >
             @csrf
             @method('PUT')
@@ -57,5 +70,7 @@
             </form>
 
     <a href="{{ route('showRoom') }}">Atpakaļ pie numuriem</a>
+    </div>
+    </div>
 </body>
 </html>

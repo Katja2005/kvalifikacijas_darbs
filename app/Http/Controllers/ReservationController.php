@@ -69,7 +69,7 @@ $data = $request->validate([
 
             public function myReservations(){
 
-                $reservations = Reservation::with('user')->get();
+                $reservations = Auth::user()->reservations;
             
                 return view('main.my_reservations',compact('reservations'));
             }

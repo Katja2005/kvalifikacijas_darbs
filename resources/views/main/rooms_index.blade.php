@@ -15,18 +15,18 @@
     background-color: #f9f9f9;
 }
 
-h1, h3 {
-    font-weight: 600;
-    color: #2c3e50;
-
-    
-}
-
-
 a{
-    font-weight:bold;
     color:blue;
+    font-weight:bold;
 }
+
+h3{
+    font-weight:bold;
+    color:black;
+}
+
+
+
 </style>
 <body>
 <div class="logo">
@@ -43,10 +43,11 @@ a{
         <div class="room-info">
     <img src="{{ asset('storage/' . $room->image) }}" alt="Room Image">
     <h3>{{ $room->title }}</h3>
-    <p><strong>{{ $room->description }}</strong></p>
-    <p><strong>Numura tips: {{ $room->type }}</strong></p>
-    <p><strong>Cena: {{ $room->price}}€</strong></p>
-    <p><strong>Brokastis: {{ $room->breakfast == 'Iekļauts' ? 'Iekļauts' : 'Nav iekļauts' }}</strong></p>
+      <h4 class="description">{{ $room->description }}</h4>        
+    <br></br>
+    <h5>Numura tips: {{ $room->type }}</h5>
+    <h5>🍴Brokastis: {{ $room->breakfast == 'Iekļauts' ? 'Iekļauts' : 'Nav iekļauts' }}</h5>
+    <h3>Cena: {{ $room->price}}€</h3>
     
     @if(auth()->check())
     <form action="{{route('bookRoom', $room->id)}}" method="get">
@@ -56,16 +57,13 @@ a{
     @else
    <form action="{{route('login')}}" method="get">
     <button type="submit">Rezervēt</button>
-    <p class='alert'>Lai rezervet numuru, lūdzu <a href="{{route('login')}}">ieiet</a> vai <a href="{{route('register')}}">reģistrejieties</a></p>
+    <p class='alert'>Lai rezervēt numuru, lūdzu <a href="{{route('login')}}">ieiet</a> vai <a href="{{route('register')}}">reģistrējieties</a></p>
    </form>
     @endif
     </div>
     </div>
     @endforeach
     </div>
-    <footer style="background-color: rgba(57, 114, 180, 0.8); color: white; padding: 15px 0; text-align: center;">
-    <p>&copy; 2024 Baltic Breeze Hotel. Visas tiesības aizsargātas.</p>
-   
-</footer>
+
 </body>
 </html>

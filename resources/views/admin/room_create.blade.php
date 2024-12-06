@@ -13,7 +13,10 @@
     </style>
 </head>
 <body>
-    <div class="container3">
+@if(session()->has('message'))
+   <div class="message">{{session()->get('message')}}</div> 
+    @endif
+<div class="container3">
         <div class="form">
     <h1>Izveidot numuru</h1>
 

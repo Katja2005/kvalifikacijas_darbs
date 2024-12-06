@@ -38,7 +38,7 @@ public function addRoom(Request $request){
   }
 Room::create($data);
 
-return view('admin.index');
+return redirect()->route('createRoom')->with('message', 'Numurs ir izveidots veiksmīgi!');
 }
 
 
@@ -124,7 +124,7 @@ public function userReviews(){
 public function deleteReview($id){
    $review = Review::find($id);
    $review->delete();
-   return redirect()->route('main');
+   return redirect()->route('userReviews')->with('message', 'Komentārs ir veiksmīgi dzēsts');
 
 }
 

@@ -22,7 +22,7 @@
 
         h1 {
             font-size: 2.5em;
-            color: #3972b4;
+            color: black;
             margin-bottom: 40px; /* Add some space between h1 and the form */
         }
 

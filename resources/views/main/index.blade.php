@@ -80,7 +80,7 @@
                @endif 
                 </div> 
                 </div>
-                <footer style="background-color: rgba(57, 114, 180, 0.8); color: white; padding: 15px 0; text-align: center;">
+                <footer style="background-color:#2c3e50; color: white; padding: 15px 0; text-align: center;">
     <p>&copy; 2024 Baltic Breeze Hotel. Visas tiesības aizsargātas.</p>
    
 </footer>
