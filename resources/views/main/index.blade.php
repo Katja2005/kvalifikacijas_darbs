@@ -47,7 +47,7 @@
             
             @auth
             @if (Auth::user()->role === 'user')
-            <a href="{{ route('myReservations') }}" class="nav-link">Manas rezervacijas</a>
+            <a href="{{ route('my-reservations') }}" class="nav-link">Manas rezervacijas</a>
             @endif
             @endauth
             <a href="{{route('reviews')}}" class="nav-link" >Atsauksmes</a>

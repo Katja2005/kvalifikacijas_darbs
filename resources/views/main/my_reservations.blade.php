@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manas Rezervacijas</title>
+    @vite('resources/css/app.css')
 </head>
 <style>
      body {
@@ -39,7 +40,7 @@
             background: #2c3e50;
         }
         table th, table td {
-            text-align: left;
+            text-align: justify;
             padding: 10px;
             border-bottom: 1px solid #ddd;
         }
@@ -51,6 +52,9 @@
        
         table td img {
             border-radius: 4px;
+            width: 500%;
+            height:auto;
+            
         }
         .message {
             margin: 20px auto;
@@ -116,7 +120,7 @@
 <td>{{$reservation->room->description}}</td>
 <td>
 @if($reservation->room->image)
-<img src="{{ asset('storage/' . $reservation->room->image) }}" alt="Room Image" width="110">
+<img src="{{ asset('storage/' . $reservation->room->image) }}" alt="Room Image" >
 @else
 No image
  @endif
@@ -124,13 +128,23 @@ No image
 <td>{{$reservation->start_date}}</td>
 <td>{{$reservation->end_date}}</td>
 <td>{{$reservation->total_price}}€</td>
-<td>{{$reservation->status}}</td>
+<td class= "@if($reservation->status === 'Apstrāde')text-yellow
+            @elseif($reservation->status === 'Apstiprināta')text-green
+            @elseif($reservation->status === 'Atcelta')text-red
+            @else
+            ---
+            @endif">
+{{$reservation->status }}</td>
 <td>
-    <form action="{{route('deleteReservation', $reservation->id)}}" method="post" onsubmit="return confirm('Jūs esat pārliecināti, ka gribāt atcelt šo rezervaciju?');">
+    @if($reservation->status === 'Apstrāde')
+    <form action="{{route('delete-reservation', $reservation->id)}}" method="post" onsubmit="return confirm('Jūs esat pārliecināti, ka gribāt atcelt šo rezervaciju?');">
         @csrf
         @method('DELETE')
         <button type="submit">Atcelt rezervaciju</button>
     </form>
+    @else
+    Nav darbību
+    @endif
 
 </td>
 

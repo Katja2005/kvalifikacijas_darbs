@@ -27,7 +27,7 @@
 
 <td>
 <div style = "display: flex; gap: 10px;">
-<form action="{{ route('deleteRoom', $room->id) }}" method="POST" onsubmit="return confirm('Jūs esat pārliecināti, ka gribāt noņemt šo numuru?');">
+<form action="{{ route('delete-room', $room->id) }}" method="POST" onsubmit="return confirm('Jūs esat pārliecināti, ka gribāt noņemt šo numuru?');">
             @csrf
             @method('DELETE')
             <button type="submit" class="delete">Noņemt</button>
@@ -35,7 +35,7 @@
             
 
              
-            <form action="{{ route('editRoom', $room->id) }}" method="GET" >
+            <form action="{{ route('edit-room', $room->id) }}" method="GET" >
             <button type="submit" class="delete">Rediģēt</button>
             </form>
 </div>

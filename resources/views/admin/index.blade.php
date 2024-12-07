@@ -14,13 +14,13 @@
 
 <div class="panel">
     <h1>Administratora panelis</h1>
-<a href="{{route('createRoom')}}">Izveidot numuru</a>
+<a href="{{route('create-room')}}">Izveidot numuru</a>
 
-<a href="{{route('showRoom')}}">Numuri</a>
+<a href="{{route('show-room')}}">Numuri</a>
 
 <a href="{{route('reservations')}}">Rezervacijas</a>
 
-<a href="{{route('userReviews')}}">Atsauksmes</a>
+<a href="{{route('user-reviews')}}">Atsauksmes</a>
 
 
 <a href="{{url('/')}}">Galvena lapa</a>

@@ -50,8 +50,8 @@ h3{
     <h3>Cena: {{ $room->price}}€</h3>
     
     @if(auth()->check())
-    <form action="{{route('bookRoom', $room->id)}}" method="get">
-        @csrf
+    <form action="{{route('book-room', $room->id)}}" method="get">
+       
         <button type="submit">Rezervēt </button>
     </form>
     @else

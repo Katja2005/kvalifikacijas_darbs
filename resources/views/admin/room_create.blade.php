@@ -21,7 +21,7 @@
     <h1>Izveidot numuru</h1>
 
    
-    <form action="{{ route('addRoom') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('add-room') }}" method="POST" enctype="multipart/form-data">
         @csrf
       
             <div>

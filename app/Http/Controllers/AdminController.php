@@ -38,7 +38,7 @@ public function addRoom(Request $request){
   }
 Room::create($data);
 
-return redirect()->route('createRoom')->with('message', 'Numurs ir izveidots veiksmīgi!');
+return redirect()->route('create-room')->with('message', 'Numurs ir izveidots veiksmīgi!');
 }
 
 
@@ -54,7 +54,7 @@ $room=Room::find($id);
 
 $room->delete();
 
-return redirect()->route('showRoom');
+return redirect()->route('show-room');
 
 }
 
@@ -87,7 +87,7 @@ public function updateRoom( Request $request, $id){
 
    }
 $room->update($data);
-  return redirect()->route('showRoom');
+  return redirect()->route('show-room');
 }
 
 
@@ -124,7 +124,7 @@ public function userReviews(){
 public function deleteReview($id){
    $review = Review::find($id);
    $review->delete();
-   return redirect()->route('userReviews')->with('message', 'Komentārs ir veiksmīgi dzēsts');
+   return redirect()->route('user-reviews')->with('message', 'Komentārs ir veiksmīgi dzēsts');
 
 }
 

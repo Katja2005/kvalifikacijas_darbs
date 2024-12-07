@@ -21,7 +21,7 @@
     <div class="container3">
         <div class="form">
 <h1>Rediģēt numuru</h1>
-    <form action="{{ route('updateRoom', $room->id) }}" method="POST" enctype="multipart/form-data" >
+    <form action="{{ route('update-room', $room->id) }}" method="POST" enctype="multipart/form-data" >
             @csrf
             @method('PUT')
 
@@ -69,7 +69,7 @@
             <button type="submit">Saglabāt izmaiņas</button>
             </form>
 
-    <a href="{{ route('showRoom') }}">Atpakaļ pie numuriem</a>
+    <a href="{{ route('show-room') }}">Atpakaļ pie numuriem</a>
     </div>
     </div>
 </body>

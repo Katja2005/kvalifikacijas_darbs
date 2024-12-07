@@ -35,7 +35,7 @@
 <td>{{$review->rating}}⭐</td>
 <td>{{$review->comment}}</td>
 <td>
-<form action="{{route('deleteReview', $review->id)}}" method="POST">
+<form action="{{route('delete-review', $review->id)}}" method="POST">
 @csrf
 @method('DELETE')
 <button type="submit">Dzēst komentāru</button>

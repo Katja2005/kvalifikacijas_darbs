@@ -39,7 +39,7 @@
    <div class="message">{{session()->get('message')}}</div> 
     @endif
 
-    <form action="{{route('makeReservation',$room->id)}}" method="post">
+    <form action="{{route('make-reservation',$room->id)}}" method="post">
         @csrf
     
     

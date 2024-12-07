@@ -20,25 +20,25 @@ Route::get('reviews', [ReviewController::class,'reviews'])->name('reviews');
 Route::middleware(['auth'])->group(function(){
 
     Route::middleware(['role:user'])->group(function(){
-        Route::get('/bookRoom/{id}', [ReservationController::class,'bookRoom'])->name('bookRoom');
-        Route::post('/makeReservation/{id}', [ReservationController::class,'makeReservation'])->name('makeReservation');
-        Route::get('myReservations', [ReservationController::class,'myReservations'])->name('myReservations');
-        Route::delete('/deleteReservation/{id}', [ReservationController::class,'deleteReservation'])->name('deleteReservation');
-        Route::post('/createReview', [ReviewController::class,'createReview'])->name('createReview');
+        Route::get('/book-room/{id}', [ReservationController::class,'bookRoom'])->name('book-room');
+        Route::post('/make-reservation/{id}', [ReservationController::class,'makeReservation'])->name('make-reservation');
+        Route::get('my-reservations', [ReservationController::class,'myReservations'])->name('my-reservations');
+        Route::delete('/delete-reservation/{id}', [ReservationController::class,'deleteReservation'])->name('delete-reservation');
+        Route::post('/create-review', [ReviewController::class,'createReview'])->name('create-review');
     });
 
 
 Route::middleware(['role:admin'])->group(function(){
-Route::get('/createRoom', [AdminController::class,'createRoom'])->name('createRoom');
-Route::post('/addRoom', [AdminController::class,'addRoom'])->name('addRoom');
-Route::get('/showRoom', [AdminController::class,'showRoom'])->name('showRoom');
-Route::delete('/deleteRoom/{id}', [AdminController::class,'deleteRoom'])->name('deleteRoom');
-Route::get('/editRoom/{id}', [AdminController::class,'editRoom'])->name('editRoom');
-Route::put('/updateRoom/{id}', [AdminController::class,'updateRoom'])->name('updateRoom');
+Route::get('/create-room', [AdminController::class,'createRoom'])->name('create-room');
+Route::post('/add-room', [AdminController::class,'addRoom'])->name('add-room');
+Route::get('/show-room', [AdminController::class,'showRoom'])->name('show-room');
+Route::delete('/delete-room/{id}', [AdminController::class,'deleteRoom'])->name('delete-room');
+Route::get('/edit-room/{id}', [AdminController::class,'editRoom'])->name('edit-room');
+Route::put('/update-room/{id}', [AdminController::class,'updateRoom'])->name('update-room');
 Route::get('reservations',[AdminController::class,'reservations'])->name('reservations');
-Route::put('/updateStatus/{id}', [AdminController::class,'updateStatus'])->name('updateStatus');
-Route::get('userReviews', [AdminController::class,'userReviews'])->name('userReviews');
-Route::delete('/deleteReview/{id}', [AdminController::class,'deleteReview'])->name('deleteReview');
+Route::put('/update-status/{id}', [AdminController::class,'updateStatus'])->name('update-status');
+Route::get('user-reviews', [AdminController::class,'userReviews'])->name('user-reviews');
+Route::delete('/delete-review/{id}', [AdminController::class,'deleteReview'])->name('delete-review');
 });
 });
 

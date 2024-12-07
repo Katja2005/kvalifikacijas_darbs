@@ -141,7 +141,7 @@
 @auth
 <div class="review-form">
 <h2>Pievienot atsaukskmi</h2>
-<form action="{{route('createReview')}}" method="post">
+<form action="{{route('create-review')}}" method="post">
     @csrf
     <label for="rating">Vērtējums:</label>
     <select name="rating" id="rating">

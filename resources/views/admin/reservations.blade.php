@@ -32,7 +32,7 @@
 @foreach($reservations as $reservation)
 <tr>
 
-<td><form action="{{route('updateStatus', $reservation->id)}}" method="post" >
+<td><form action="{{route('update-status', $reservation->id)}}" method="post" >
     @csrf
     @method('PUT')
 
