@@ -14,7 +14,7 @@ class AdminController extends Controller
 
 
 public function createRoom(){
-   return view ('admin.room_create');
+   return view ('admin.room.create');
 }
 
 public function addRoom(Request $request){
@@ -45,7 +45,7 @@ return redirect()->route('create-room')->with('message', 'Numurs ir izveidots ve
 public function showRoom(){
 
    $rooms=Room::all();
-   return view('admin.room_show',compact('rooms'));
+   return view('admin.room.show',compact('rooms'));
 }
 
 public function deleteRoom($id){
@@ -62,7 +62,7 @@ public function editRoom($id){
 
 
    $room = Room::find($id);
-   return view('admin.room_edit',compact('room'));
+   return view('admin.room.edit',compact('room'));
 }
 
 
@@ -99,7 +99,7 @@ $room->update($data);
 public function reservations(){
 
    $reservations=Reservation::all();
-   return view('admin.reservations',compact('reservations'));
+   return view('admin.reservation.index',compact('reservations'));
 }
 
 public function updateStatus(Request $request, $id){
@@ -116,7 +116,7 @@ return redirect()->route('reservations')->with('message', 'Rezervacijas statuss 
 
 public function userReviews(){
    $reviews= Review::with('user')->latest()->get();
-   return view('admin.reviews',compact('reviews'));
+   return view('admin.review.index',compact('reviews'));
 }
 
 

@@ -50,7 +50,7 @@ class HomeController extends Controller
      
      
      
-        return view ('main.rooms_index',compact('rooms'));
+        return view ('main.room.index',compact('rooms'));
      }
 
 public function contacts(){

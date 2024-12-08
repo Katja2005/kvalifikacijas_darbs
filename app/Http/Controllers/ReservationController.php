@@ -18,7 +18,7 @@ class ReservationController extends Controller
         }
     $room=Room::find($id);
     
-    return view('main.rooms_reservation',compact('room'));
+    return view('main.reservation.create',compact('room'));
         }
 
 
@@ -71,7 +71,7 @@ $data = $request->validate([
 
                 $reservations = Auth::user()->reservations;
             
-                return view('main.my_reservations',compact('reservations'));
+                return view('user.reservations.index',compact('reservations'));
             }
             
             

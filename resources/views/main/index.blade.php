@@ -66,7 +66,7 @@
                 @else
                     <form action="{{ route('login') }}" method="GET" style="display: inline;">
                     
-                    <button type="submit">Ieiet</button>
+                    <button type="submit">Pieslēgties</button>
                     
                     </form>
                     @if (Route::has('register'))

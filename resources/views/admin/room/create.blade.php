@@ -62,7 +62,7 @@
             </div>
 
             <div>
-                <input class="back-btn" type="submit" value="Add Room">
+                <input class="back-btn" type="submit" value="Izveidot numuru">
                 <a href="{{route('main')}}" class="back-btn">Atpakaļ</a>
 
             </div>

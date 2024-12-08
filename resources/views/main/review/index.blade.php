@@ -62,7 +62,7 @@
             border: 1px solid #ddd;
             border-radius: 5px;
             max-width: 35%;
-            margin-left:440px;
+            margin-left:500px;
 
         }
 
@@ -160,7 +160,7 @@
 </form>
 </div>
 @else
-<p class="auth-link"><a href="{{ route('login')}}">Pierakstities</a>, lai pievienotu atsauskmi</p>
+<p class="auth-link"><a href="{{ route('login')}}">Pieslēdzieties, </a> lai pievienotu atsauksmi.</p>
 @endauth
 
 

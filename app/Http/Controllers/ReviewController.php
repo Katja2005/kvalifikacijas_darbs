@@ -12,7 +12,7 @@ class ReviewController extends Controller
 
     public function reviews(){
         $reviews= Review::with('user')->latest()->get();
-        return view('main.reviews',compact('reviews'));
+        return view('main.review.index',compact('reviews'));
     }
 
 public function createReview(Request $request){

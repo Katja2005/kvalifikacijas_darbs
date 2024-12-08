@@ -49,7 +49,7 @@ h3{
     <h5>🍴Brokastis: {{ $room->breakfast == 'Iekļauts' ? 'Iekļauts' : 'Nav iekļauts' }}</h5>
     <h3>Cena: {{ $room->price}}€</h3>
     
-    @if(auth()->check())
+   @auth
     <form action="{{route('book-room', $room->id)}}" method="get">
        
         <button type="submit">Rezervēt </button>
@@ -57,13 +57,13 @@ h3{
     @else
    <form action="{{route('login')}}" method="get">
     <button type="submit">Rezervēt</button>
-    <p class='alert'>Lai rezervēt numuru, lūdzu <a href="{{route('login')}}">ieiet</a> vai <a href="{{route('register')}}">reģistrējieties</a></p>
+    <p class='alert'>Lai rezervētu numuru, lūdzu, <a href="{{route('login')}}">pieslēdzieties savam kontam</a> vai <a href="{{route('register')}}">reģistrējieties</a></p>
    </form>
-    @endif
+    @endauth
     </div>
     </div>
     @endforeach
-    </div>
+    </div> 
 
 </body>
 </html>
