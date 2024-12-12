@@ -26,6 +26,7 @@
         <th>Lietotāja vārds un uzvārds</th>
         <th>Vērtejums</th>
         <th>Komentārs</th>
+        <th>Izveidots</th>
         <th>Darbības</th>
     </tr>
     @foreach($reviews as $review)
@@ -34,6 +35,7 @@
 <td>{{$review->user->name}} {{$review->user->surname}}</td>
 <td>{{$review->rating}}⭐</td>
 <td>{{$review->comment}}</td>
+<td> {{ $review->created_at->timezone('Europe/Riga')->format('Y-m-d H:i:s') }}</td>
 <td>
 <form action="{{route('delete-review', $review->id)}}" method="POST">
 @csrf

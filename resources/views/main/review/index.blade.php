@@ -133,6 +133,8 @@
     <p><strong>{{ $review->user->name }}</strong></p>
     <div class="rating1">Vērtējums: {{ $review->rating }}⭐</div>
     <p>{{$review->comment}}</p>
+    <br></br>
+    <p>{{$review->created_at->timezone('Europe/Riga')->format('Y-m-d H:i:s')}}</p>
     </div>
     @endforeach
     @endif

@@ -58,7 +58,7 @@
           
             
             <div class="header-nav">
-            @if (Route::has('login'))
+           
                 @auth
                     <x-app-layout>
 
@@ -69,15 +69,15 @@
                     <button type="submit">Pieslēgties</button>
                     
                     </form>
-                    @if (Route::has('register'))
+                   
                     <form action="{{ route('register') }}" method="GET" style="display: inline;">
                    
                     <button type="submit">Reģistrēties</button>
                   
                     </form>
-                    @endif
+                   
                 @endauth
-               @endif 
+                
                 </div> 
                 </div>
                 <footer style="background-color:#2c3e50; color: white; padding: 15px 0; text-align: center;">
