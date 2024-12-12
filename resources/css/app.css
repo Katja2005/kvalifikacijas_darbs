@@ -446,13 +446,19 @@ button:hover {
 
         .text-red{
             color: red;
+            font-weight: bold;
+            font-size: larger;
         }
 
         .text-yellow{
             color: #ffcc00;
+            font-weight: bold;
+            font-size: larger;
         }
 .text-green{
     color: green;
+    font-weight: bold;
+    font-size: larger;
 }
 
-       
+ 

@@ -11,49 +11,60 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f3f4f6;
             color: #333;
         }
         .box {
-            max-width: 900px;
+            max-width: 1100px;
             margin: 50px auto;
             padding: 20px;
             background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
         h1 {
             text-align: center;
             color: black;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
         }
         p {
             text-align: center;
             font-size: 18px;
-            color: #888;
+            color: black;
         }
         table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
+            border-radius: 8px;
+            overflow: hidden;
         }
         table thead {
             background: #2c3e50;
+            color: white;
         }
         table th, table td {
-            text-align: justify;
-            padding: 10px;
-            border-bottom: 1px solid #ddd;
+            text-align: left;
+            padding: 15px;
+            font-size: 16px;
+            color: #555;
+           
         }
         table th {
-            color: white;
-            font-size: 14px;
+            letter-spacing: 1px;
             text-transform: uppercase;
+            color: white;
         }
-       
+        table td {
+            color:black;
+        }
+
         table td img {
-            border-radius: 4px;
-            width: 500%;
-            height:auto;
+            width: 120px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
             
         }
         .message {
@@ -88,6 +99,14 @@
         a:hover {
             color: #2980b9;
         }
+        .title{
+            font-weight:bold;
+        }
+.total_price{
+    font-weight:bold;
+    font-size:20px;
+}
+       
 </style>
 <body>
     <div class="box">
@@ -116,8 +135,8 @@
             <tbody>
 @foreach($reservations as $reservation)
         <tr>
-<td>{{$reservation->room->title}}</td>
-<td>{{$reservation->room->description}}</td>
+<td class="title">{{$reservation->room->title}}</td>
+<td class= "description">{{$reservation->room->description}}</td>
 <td>
 @if($reservation->room->image)
 <img src="{{ asset('storage/' . $reservation->room->image) }}" alt="Room Image" >
@@ -127,7 +146,7 @@ No image
 </td>
 <td>{{$reservation->start_date}}</td>
 <td>{{$reservation->end_date}}</td>
-<td>{{$reservation->total_price}}€</td>
+<td class="total_price">{{$reservation->total_price}}€</td>
 <td class= "@if($reservation->status === 'Apstrāde')text-yellow
             @elseif($reservation->status === 'Apstiprināta')text-green
             @elseif($reservation->status === 'Atcelta')text-red
