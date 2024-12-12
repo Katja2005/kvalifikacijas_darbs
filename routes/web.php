@@ -25,6 +25,7 @@ Route::middleware(['auth'])->group(function(){
         Route::get('my-reservations', [ReservationController::class,'myReservations'])->name('my-reservations');
         Route::delete('/delete-reservation/{id}', [ReservationController::class,'deleteReservation'])->name('delete-reservation');
         Route::post('/create-review', [ReviewController::class,'createReview'])->name('create-review');
+        Route::get('reservation-details/{id}', [ReservationController::class,'details'])->name('reservation-details');
     });
 
 

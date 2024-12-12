@@ -75,7 +75,10 @@ $data = $request->validate([
             }
             
             
-            
+            public function details($id){
+                $reservation = Reservation::findOrFail($id);
+                return view('user.reservations.show',compact('reservation'));
+            }
             
             public function deleteReservation($id){
                 $reservation = Reservation::findOrFail($id);

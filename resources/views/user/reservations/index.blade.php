@@ -77,7 +77,7 @@
             max-width: 600px;
             text-align: center;
         }
-        button {
+        .delete {
             background: #e74c3c;
             color: #fff;
             border: none;
@@ -86,7 +86,7 @@
             cursor: pointer;
             font-size: 14px;
         }
-        button:hover {
+       .delete:hover {
             background: #c0392b;
         }
         a {
@@ -122,8 +122,7 @@
                 <tr>
 
                 <th>Numura nosaukums</th>
-                <th>Apraksts</th>
-                <th>Bilde</th>
+                <th>Detaļas</th>
                 <th>Iebraukšanas datums</th>
                 <th>Izbraukšsanas datums</th>
                 <th>Kopejā cena</th>
@@ -136,13 +135,10 @@
 @foreach($reservations as $reservation)
         <tr>
 <td class="title">{{$reservation->room->title}}</td>
-<td class= "description">{{$reservation->room->description}}</td>
 <td>
-@if($reservation->room->image)
-<img src="{{ asset('storage/' . $reservation->room->image) }}" alt="Room Image" >
-@else
-No image
- @endif
+    <form action="{{route('reservation-details', $reservation->id)}}" method="get">
+        <button type="submit">Detaļas</button>
+    </form> 
 </td>
 <td>{{$reservation->start_date}}</td>
 <td>{{$reservation->end_date}}</td>
@@ -159,7 +155,7 @@ No image
     <form action="{{route('delete-reservation', $reservation->id)}}" method="post" onsubmit="return confirm('Jūs esat pārliecināti, ka gribāt atcelt šo rezervaciju?');">
         @csrf
         @method('DELETE')
-        <button type="submit">Atcelt rezervaciju</button>
+        <button type="submit" class="delete">Atcelt rezervaciju</button>
     </form>
     @else
     Nav darbību
