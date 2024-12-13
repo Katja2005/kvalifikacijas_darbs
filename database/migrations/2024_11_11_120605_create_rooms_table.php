@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('image');
             $table->float('price');
             $table->string('type');
-            $table->string('breakfast')->default('included');
+            $table->string('breakfast');
 
 
             $table->timestamps();
