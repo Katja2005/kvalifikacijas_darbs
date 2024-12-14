@@ -39,7 +39,7 @@ class DatabaseSeeder extends Seeder
         Room::create([
             'title' => 'Double Deluxe',
             'description' => 'Šis numurs ir ideāli piemērots pāriem, kas vēlas izbaudīt īpašu un relaksējošu uzturēšanos. Tas ietver plašu guļamistabu ar lielu divvietīgu gultu, mini bāru, kā arī kafijas automātu. Deluxe numurā ir moderna vannas istaba ar džakuzi, dušu, luksusa piederumiem un mīkstiem dvieļiem',
-            'image' => 'storage/Deluxe.jpg',
+            'image' => 'images/Deluxe.jpg',
             'price' => 230,
             'type' => 'Deluxe',
             'breakfast' => 'Iekļauts',
@@ -50,7 +50,7 @@ class DatabaseSeeder extends Seeder
             'description' => 'Šis komfortablais un funkcionālais standarta numurs ir lieliski piemērots pārim vai diviem ceļotājiem,
              kas meklē ērtu atpūtu. 
             Numurā ir divas atsevišķas gultas vai viena liela gulta. Ir bezmaksas Wi-Fi interneta pieslēgums, leduskapis un  ērts rakstāmgalds. Numurā ir privāta vannas istaba ar dušu , tualetes piederumiem un dvieļiem.',
-            'image' => 'storage/standarts.jpg',
+            'image' => 'images/standarts.jpg',
             'price' => 150,
             'type' => 'Standard',
             'breakfast' => 'Iekļauts',
