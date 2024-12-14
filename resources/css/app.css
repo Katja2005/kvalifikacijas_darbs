@@ -140,7 +140,7 @@ button:hover {
         .reservation {
             width: 100%;
             max-width: 550px;
-            background: #2c3e50;
+            background: white;
             border-radius: 15px;
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
             padding: 30px;
@@ -157,7 +157,7 @@ button:hover {
         .reservation label {
             font-size: 1.1em;
             font-weight: 600;
-            color: white;
+            color: black;
             text-align: left;
         }
 
