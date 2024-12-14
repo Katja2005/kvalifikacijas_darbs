@@ -16,6 +16,14 @@
         p{
             font-size:20px;
         }
+
+        h1{
+            font-size: 2.5em;
+            color: black;
+            margin-bottom: 40px; 
+            margin-top:40px;
+            text-align:center;
+        }
     </style>
 </head>
 <body>
@@ -24,9 +32,10 @@
     <button type="submit">Atpakaļ </button>
     </form> 
 </div>
+<h1>Rediģēt numuru</h1>
     <div class="container3">
         <div class="form">
-<h1>Rediģēt numuru</h1>
+
     <form action="{{ route('update-room', $room->id) }}" method="POST" enctype="multipart/form-data" >
             @csrf
             @method('PUT')
