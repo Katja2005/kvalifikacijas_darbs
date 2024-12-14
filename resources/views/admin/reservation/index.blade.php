@@ -5,15 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rezervacijas</title>
     @vite('resources/css/app.css')
-    
+    <style>
+        h1{
+            text-align:center;
+            font-size: 2.5em;
+        }
+    </style>
 </head>
 <body>
+<div style= "position: absolute; top:10px; left:10px;">
+<form action="{{route('main')}}" method="get">
+    <button type="submit">Atpakaļ</button>
+    </form> 
+</div>
     
     @if(session()->has('message'))
    <div class="message">{{session()->get('message')}}</div> 
     @endif
     <div class="container3">
-<table class="table2">
+        <h1>Lietotāju rezervācijas</h1>
+<table class="table">
 <thead>
 <tr>
 <th>Rezervacijas status</th>
@@ -69,7 +80,7 @@
 
 </table>
 
-<a href="{{route('main')}}" class="back">Atpakaļ</a>
+
 
 </div>
 

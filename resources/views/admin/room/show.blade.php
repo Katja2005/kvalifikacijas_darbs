@@ -6,9 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Numuri</title>
     @vite('resources/css/app.css')
+    <style>
+         h1{
+            text-align:center;
+         font-size: 2.5em;
+         }
+    </style>
 </head>
 <body>
+<div style= "position: absolute; top:10px; left:10px;">
+<form action="{{route('main')}}" method="get">
+    <button type="submit">Atpakaļ</button>
+    </form> 
+</div>
 <div class="container2">
+    <h1>Numuri</h1>
 <table class="table">
 <thead>
 <tr>
@@ -66,7 +78,7 @@ No image
 
 </table>
 
-<a href="{{route('main')}}" class="back">Atpakaļ</a>
+
 
 </div>
 

@@ -8,16 +8,12 @@
     
 </head>
 <style>
-    body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-}
+
 
 a{
-    color:blue;
+    color:#2c3e50;
     font-weight:bold;
+    
 }
 
 h3{
@@ -29,10 +25,14 @@ h3{
 
 </style>
 <body>
-<div class="logo">
-    <a href="{{url('/')}}">
-  <img src="{{ asset('images/preview (2).webp') }}" alt="Logo">
-  </a>
+
+
+        <div style= "position: absolute; top:10px; left:10px;">
+        <form action="{{url('/')}}" method="get">
+        <button type="submit">Atpakaļ</button>
+    </form>
+        </div>
+
     <h1 class="room-title">Mūsu numuri</h1>
   
 
@@ -45,8 +45,8 @@ h3{
     <h3>{{ $room->title }}</h3>
       <h4 class="description">{{ $room->description }}</h4>        
     <br></br>
-    <h5>Numura tips: {{ $room->type }}</h5>
-    <h5>🍴Brokastis: {{ $room->breakfast == 'Iekļauts' ? 'Iekļauts' : 'Nav iekļauts' }}</h5>
+    <h5><strong>Numura tips: </strong> {{ $room->type }}</h5>
+    <h5><strong>🍴Brokastis: </strong> {{ $room->breakfast == 'Iekļauts' ? 'Iekļauts' : 'Nav iekļauts' }}</h5>
     <h3>Cena: {{ $room->price}}€</h3>
     
    @auth
@@ -57,7 +57,7 @@ h3{
     @else
    <form action="{{route('login')}}" method="get">
     <button type="submit">Rezervēt</button>
-    <p class='alert'>Lai rezervētu numuru, lūdzu, <a href="{{route('login')}}">pieslēdzieties savam kontam</a> vai <a href="{{route('register')}}">reģistrējieties</a></p>
+    <p>Lai rezervētu numuru, lūdzu, <a href="{{route('login')}}">pieslēdzieties savam kontam</a> vai <a href="{{route('register')}}">reģistrējieties</a></p>
    </form>
     @endauth
     </div>
@@ -65,5 +65,8 @@ h3{
     @endforeach
     </div> 
 
+
+ 
+    
 </body>
 </html>

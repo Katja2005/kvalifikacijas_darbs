@@ -8,19 +8,24 @@
     <style>
         h1{
             text-align:center;
-            font-size:25px;
+            font-size: 2.5em;
         }
     </style>
 </head>
 
 <body>
+<div style= "position: absolute; top:10px; left:10px;">
+<form action="{{route('main')}}" method="get">
+    <button type="submit">Atpakaļ</button>
+    </form> 
+</div>
 @if(session()->has('message'))
    <div class="message">{{session()->get('message')}}</div> 
     @endif
 <div class="container3">
     <h1>Lietotāju atsauksmes</h1>
     
-    <table class="table2">
+    <table class="table">
 <thead>
     <tr>
         <th>Lietotāja vārds un uzvārds</th>
@@ -53,7 +58,6 @@
 
     </table>
 
-<a href="{{route('main')}}">Atpakaļ</a>
 </div>
 </body>
 </html>

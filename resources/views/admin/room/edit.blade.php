@@ -3,21 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update</title>
+    <title>Rediģēt numuru</title>
     @vite('resources/css/app.css')
     <style>
-         h1{
-        font-size:30px;
-        font-weight:bold;
-       }
+       
        img {
             margin-top: 10px;
             border-radius: 5px;
             display: block;
         }
+
+        p{
+            font-size:20px;
+        }
     </style>
 </head>
 <body>
+<div style= "position: absolute; top:10px; left:10px;">
+<form action="{{route('show-room')}}" method="get">
+    <button type="submit">Atpakaļ </button>
+    </form> 
+</div>
     <div class="container3">
         <div class="form">
 <h1>Rediģēt numuru</h1>
@@ -63,13 +69,18 @@
                 <input type="file" name="image" id="image" accept="image/*" >
                 @if($room->image)
             <p>Tagadēja bilde:</p>
-            <img src="{{ asset('storage/' . $room->image) }}" width="100">
+            <img src="{{ asset('storage/' . $room->image) }}" width="200">
         @endif
             </div>
+            
+            
+            <div style = "display: flex; gap: 10px; margin-top:20px" >
             <button type="submit">Saglabāt izmaiņas</button>
             </form>
 
-    <a href="{{ route('show-room') }}">Atpakaļ pie numuriem</a>
+
+
+            </div>
     </div>
     </div>
 </body>

@@ -18,12 +18,12 @@
 
 <a href="{{route('show-room')}}">Numuri</a>
 
-<a href="{{route('reservations')}}">Rezervacijas</a>
+<a href="{{route('reservations')}}">Rezervācijas</a>
 
 <a href="{{route('user-reviews')}}">Atsauksmes</a>
 
 
-<a href="{{url('/')}}">Galvena lapa</a>
+<a href="{{url('/')}}">Galvenā lapa</a>
 </div>
 
 <body>

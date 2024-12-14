@@ -28,16 +28,12 @@
 </head>
 <body >
 <div class="background">
-  <div class="logo">
-    <a href="{{url('/')}}">
-  <img src="{{ asset('images/preview (2).webp') }}" alt="Logo">
-  </a>
-    </div>
+  
     
 
 
 <h1 class="main-title">Baltic Breeze Hotel</h1>
-<p style="font-size: 1.5em; text-align: center; max-width: 600px;">
+<p style="font-size: 1.5em; text-align: center; max-width: 600px; ">
             Piedzīvo neaizmirstamus mirkļus mūsu viesnīcā!
         </p>
         <br></br>

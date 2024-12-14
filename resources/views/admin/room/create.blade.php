@@ -5,20 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Izveidot numuru</title>
     @vite('resources/css/app.css')
-    <style>
-       h1{
-        font-size:30px;
-        font-weight:bold;
-       }
-    </style>
+   <style>
+  
+        h1 {
+            font-size: 2.5em;
+            color: black;
+            margin-bottom: 40px; 
+            margin-top:40px;
+            text-align:center;
+        }
+
+   </style>
 </head>
 <body>
+<div style= "position: absolute; top:10px; left:10px;">
+<form action="{{route('main')}}" method="get">
+    <button type="submit">Atpakaļ</button>
+    </form> 
+</div>
 @if(session()->has('message'))
    <div class="message">{{session()->get('message')}}</div> 
     @endif
+    <h1>Izveidot numuru</h1>
 <div class="container3">
         <div class="form">
-    <h1>Izveidot numuru</h1>
+    
 
    
     <form action="{{ route('add-room') }}" method="POST" enctype="multipart/form-data">
@@ -60,14 +71,12 @@
                 <label for="image">Augšupielādēt bildi</label>
                 <input type="file" name="image" id="image" accept="image/*" required>
             </div>
-
-            <div>
-                <input class="back-btn" type="submit" value="Izveidot numuru">
-                <a href="{{route('main')}}" class="back-btn">Atpakaļ</a>
-
-            </div>
-        </div>
+           <div style = "display: flex; gap: 10px;">
+          <button type="submit">Izveidot numuru</button>     
+        
     </form>
+        
+    </div>
     </div>
     </div>
 

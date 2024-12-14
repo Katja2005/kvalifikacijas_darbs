@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atsauksmes</title>
   <style>
+
       body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f2f2f2;
-            color: #333;
+            color: black;
             line-height: 1.6;
            
         }
@@ -26,7 +27,8 @@
 
         h1, h2 {
             text-align: center;
-            color: #444;
+            color: black;
+            font-size:1.9em;
         }
 
         .review-card {
@@ -39,7 +41,7 @@
         }
 
         .review-card strong {
-            color: #333;
+            color: black;
             font-size: 1.1rem;
         }
 
@@ -61,8 +63,10 @@
             background: white;
             border: 1px solid #ddd;
             border-radius: 5px;
-            max-width: 35%;
-            margin-left:500px;
+            max-width: 32%;
+            margin-left:519px;
+            margin-bottom: 30px;
+            
 
         }
 
@@ -70,59 +74,61 @@
             display: block;
             margin-bottom: 5px;
             font-weight: bold;
-            color: #444;
+            color: black;
         }
 
-        form select, form textarea, form button {
+        form select, form textarea {
             width: 90%;
             margin-bottom: 15px;
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 1rem;
+            
            
         }
 
         form select:focus, form textarea:focus {
-            border-color: #1a73e8;
+            border-color: #2c3e50;
             outline: none;
         }
 
         textarea {
             resize: none;
+            
         }
 
-        button {
-            background-color:#2c3e50;
-            color: white;
-            font-weight: bold;
-            border: none;
-            cursor: pointer;
-            transition: background 0.3s ease;
-       
-        }
+       button {
+    color: black;
+    background-color: white;
+    border: 2px solid #2c3e50;
+    border-radius: 5px;
+    padding: 8px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    
 
-        button:hover {
-            background-color: #2c3e50;
-        }
+}
 
-        .auth-link, .back-link {
-            text-align: center;
-            display: block;
-           
-            text-decoration: none;
-            color: black;
-            font-weight: bold;
-            font-size:20px;
-        }
-
-        .auth-link:hover, .back-link:hover {
-            text-decoration: underline;
-        }
- 
+button:hover {
+    background-color: #384f65;
+    color: white; 
+}
+         
+ .login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
   </style>
 </head>
 <body>
+<div style= "position: absolute; top:10px; left:10px;">
+<form action="{{url('/')}}" method="get">
+    <button type="submit">Atpakaļ</button>
+</form>
+</div>
     <div class="container">
     <h1>Atsauksmes</h1>
     @if($reviews->isEmpty())
@@ -142,7 +148,7 @@
 
 @auth
 <div class="review-form">
-<h2>Pievienot atsaukskmi</h2>
+<h2>Pievienot atsauksmi</h2>
 <form action="{{route('create-review')}}" method="post">
     @csrf
     <label for="rating">Vērtējums:</label>
@@ -155,14 +161,23 @@
     </select>
 
     <label for="comment">Komentārs:</label>
-    <textarea name="comment" id="comment"  placeholder="Ierakstiet savu atsauksmi šeit..."></textarea>
+    <textarea name="comment" id="comment" required ></textarea>
 
+
+    <div style="display: flex; gap: 10px;">
     <button type="submit">Pievienot atsauksmi</button>
-    <a href="{{ url('/')}}" class="back-link">Atpakaļ</a>
+    
 </form>
+
+
+</div>
 </div>
 @else
-<p class="auth-link"><a href="{{ route('login')}}">Pieslēdzieties, </a> lai pievienotu atsauksmi.</p>
+<div class="login">
+<form action="{{ route('login')}}" method="get">
+    <button type="submit">Pieslēdzieties,  lai pievienotu atsauksmi</button>
+</form>
+</div>
 @endauth
 
 

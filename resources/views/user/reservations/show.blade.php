@@ -16,19 +16,16 @@
         h1 {
             text-align: center;
             color: black;
-            font-weight:bold;
-            font-size:25px;
+          
+            font-size:2.5em;
         }
         h2{
-            font-weight:bold;
+           
             text-align: left;
             font-size:25px;
+            font-weight:bold;
         }
-        
-       .back{
-        text-align: center;
-            display: block;
-       }
+    
         
       
 
@@ -36,19 +33,27 @@
     </style>
 </head>
 <body>
-
+<div style= "position: absolute; top:10px; left:10px;">
+<form action="{{ route('my-reservations') }}" method="get">
+            <button type="submit">Atpakaļ uz rezervācijām</button>
+        </form>
+        
+    </div>
     <div class="container6">
         <h1>Numura Detaļas</h1>
 
         <div class="room-details">
             <h2>{{ $reservation->room->title }}</h2>
-            <img src="{{ asset('storage/' . $reservation->room->image) }}" alt="Room Image">
-            <p><strong>Apraksts:</strong> {{ $reservation->room->description }}</p>
+            <img src="{{ asset('storage/' . $reservation->room->image) }}" alt="Room Image" >
+            <p> {{ $reservation->room->description }}</p>
+            <p><strong>Numura tips:</strong> {{ $reservation->room->type }}</p>
             <p><strong>🍴Brokastis:</strong> {{ $reservation->room->breakfast }}</p>
-        </div>
-        <br></br>
 
-        <a href="{{ route('my-reservations') }}" class="back" >Atpakaļ uz rezervācijām</a>
+        </div>
+     
+
+
+      
     </div>
 
 </body>

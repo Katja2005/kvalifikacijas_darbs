@@ -8,7 +8,7 @@
     @vite('resources/css/app.css')
     <style>
  body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f0f4f8;
@@ -23,7 +23,8 @@
         h1 {
             font-size: 2.5em;
             color: black;
-            margin-bottom: 40px; /* Add some space between h1 and the form */
+            margin-bottom: 40px; 
+            margin-top:40px;
         }
 
         
@@ -31,6 +32,11 @@
     </style>
 </head>
 <body>
+<div style= "position: absolute; top:10px; left:10px;">
+<form action="{{route('rooms')}}" method="get">
+    <button type="submit">Atpakaļ pie numuriem</button>
+</form>
+    </div>
     <h1>Izveidot rezervaciju</h1>
 
 
@@ -65,7 +71,7 @@
 <button type="submit">Rezervēt</button>
 
 </form>
-<a href="{{route('rooms')}}">Atpakaļ pie numuriem</a>
+
 </div>
 <script>
 

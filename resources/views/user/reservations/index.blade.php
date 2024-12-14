@@ -33,62 +33,9 @@
             font-size: 18px;
             color: black;
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        table thead {
-            background: #2c3e50;
-            color: white;
-        }
-        table th, table td {
-            text-align: left;
-            padding: 15px;
-            font-size: 16px;
-            color: #555;
-           
-        }
-        table th {
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            color: white;
-        }
-        table td {
-            color:black;
-        }
-
-        table td img {
-            width: 120px;
-            height: 80px;
-            object-fit: cover;
-            border-radius: 8px;
-            
-        }
-        .message {
-            margin: 20px auto;
-            padding: 10px;
-            background: #dff0d8;
-            color: #3c763d;
-            border: 1px solid #d6e9c6;
-            border-radius: 5px;
-            max-width: 600px;
-            text-align: center;
-        }
-        .delete {
-            background: #e74c3c;
-            color: #fff;
-            border: none;
-            padding: 8px 12px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14px;
-        }
-       .delete:hover {
-            background: #c0392b;
-        }
+       
+     
+        
         a {
             display: inline-block;
             margin-top: 20px;
@@ -99,16 +46,36 @@
         a:hover {
             color: #2980b9;
         }
-        .title{
-            font-weight:bold;
-        }
+        
 .total_price{
     font-weight:bold;
     font-size:20px;
 }
+.text-red{
+            color: red;
+            font-weight: bold;
+            font-size: larger;
+        }
+
+        .text-yellow{
+            color: #ffcc00;
+            font-weight: bold;
+            font-size: larger;
+        }
+.text-green{
+    color: green;
+    font-weight: bold;
+    font-size: larger;
+}
+
        
 </style>
 <body>
+<div style= "position: absolute; top:10px; left:10px;">
+<form action="{{url('/')}}" method="get">
+            <button type="submit">Atpakaļ</button>
+        </form>
+</div>
     <div class="box">
         <h1>Manas Rezervacijas</h1>
         @if($reservations->isEmpty())
@@ -117,14 +84,13 @@
    <div class="message">{{session()->get('message')}}</div> 
     @endif
         @else
-        <table>
+        <table class="table">
             <thead>
                 <tr>
 
-                <th>Numura nosaukums</th>
-                <th>Detaļas</th>
+                <th>Numura detaļas</th>
                 <th>Iebraukšanas datums</th>
-                <th>Izbraukšsanas datums</th>
+                <th>Izbraukšanas datums</th>
                 <th>Kopejā cena</th>
                 <th>Status</th>
                 <th>Darbība</th>
@@ -134,7 +100,7 @@
             <tbody>
 @foreach($reservations as $reservation)
         <tr>
-<td class="title">{{$reservation->room->title}}</td>
+
 <td>
     <form action="{{route('reservation-details', $reservation->id)}}" method="get">
         <button type="submit">Detaļas</button>
@@ -143,19 +109,13 @@
 <td>{{$reservation->start_date}}</td>
 <td>{{$reservation->end_date}}</td>
 <td class="total_price">{{$reservation->total_price}}€</td>
-<td class= "@if($reservation->status === 'Apstrāde')text-yellow
-            @elseif($reservation->status === 'Apstiprināta')text-green
-            @elseif($reservation->status === 'Atcelta')text-red
-            @else
-            ---
-            @endif">
-{{$reservation->status }}</td>
+<td>{{$reservation->status }}</td>
 <td>
     @if($reservation->status === 'Apstrāde')
     <form action="{{route('delete-reservation', $reservation->id)}}" method="post" onsubmit="return confirm('Jūs esat pārliecināti, ka gribāt atcelt šo rezervaciju?');">
         @csrf
         @method('DELETE')
-        <button type="submit" class="delete">Atcelt rezervaciju</button>
+        <button type="submit" >Atcelt rezervaciju</button>
     </form>
     @else
     Nav darbību
@@ -170,7 +130,7 @@
         </table>
         @endif
 
-        <a href="{{url('/')}}">Atpakaļ</a>
+        
     </div>
 </body>
 </html>
