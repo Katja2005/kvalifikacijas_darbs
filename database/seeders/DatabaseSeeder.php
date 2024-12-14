@@ -7,6 +7,7 @@ use App\Models\Room;
 use App\Models\Review;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\File;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,7 +16,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        if (!File::exists(storage_path('app/public/images'))) {
+            File::makeDirectory(storage_path('app/public/images'), 0777, true);
+        }
+        
+        // Pārvieto attēlus uz storage direktoriju
+        File::copy(public_path('images/Deluxe.jpg'), storage_path('app/public/images/Deluxe.jpg'));
+        File::copy(public_path('images/standarts.jpg'), storage_path('app/public/images/standarts.jpg'));
 
         User::factory()->create([
             'name' => 'admin',
