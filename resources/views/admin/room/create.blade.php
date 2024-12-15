@@ -36,22 +36,22 @@
         @csrf
       
             <div>
-                <label for="title">Nosaukums</label>
+                <label for="title">Nosaukums:</label>
                 <input type="text" name="title" id="title" required>
             </div>
 
             <div>
-                <label for="description">Apraksts</label>
+                <label for="description">Apraksts:</label>
                 <textarea name="description" id="description" required></textarea>      
             </div>
 
             <div>
-                <label for="price">Cena par vienu nakti</label>
+                <label for="price">Cena par vienu nakti:</label>
                 <input type="number" name="price" id="price" required>     
             </div>
 
             <div>
-                <label for="type">Numura tips</label>
+                <label for="type">Numura tips:</label>
                 <select name="type" id="type" required>
                     <option value="Standart">Standart</option>
                     <option value="Deluxe">Deluxe</option>
@@ -60,7 +60,7 @@
             </div>
 
             <div>
-                <label for="breakfast">Brokastis</label>
+                <label for="breakfast">Brokastis:</label>
                 <select name="breakfast" id="breakfast" required>
                     <option value="Iekļauts">Iekļauts</option>
                     <option value="Nav iekļauts">Nav iekļauts</option>
@@ -68,7 +68,7 @@
             </div>
 
             <div>
-                <label for="image">Augšupielādēt bildi</label>
+                <label for="image">Augšupielādēt bildi:</label>
                 <input type="file" name="image" id="image" accept="image/*" required>
             </div>
            <div style = "display: flex; gap: 10px;">

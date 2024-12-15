@@ -42,22 +42,22 @@
 
             <div class="container">
             <div>
-                <label for="title">Numura nosaukums</label>
+                <label for="title">Numura nosaukums:</label>
                 <input type="text" name="title" id="title" value="{{$room->title}}">
             </div>
 
             <div>
-                <label for="description">Apraksts</label>
+                <label for="description">Apraksts:</label>
                 <textarea name="description" id="description">{{$room->description}}</textarea>      
             </div>
 
             <div>
-                <label for="price">Cena</label>
+                <label for="price">Cena:</label>
                 <input type="number" name="price" id="price" value="{{$room->price}}" >     
             </div>
 
             <div>
-                <label for="type">Numura tips</label>
+                <label for="type">Numura tips:</label>
                 <select name="type" id="type" required>
                     <option value="Standart" {{ $room->type == 'Standart' ? 'selected' : '' }}>Standart</option>
                     <option value="Deluxe" {{ $room->type == 'Deluxe' ? 'selected' : '' }}>Deluxe</option>
@@ -66,7 +66,7 @@
             </div>
 
             <div>
-                <label for="breakfast">Brokastis</label>
+                <label for="breakfast">Brokastis:</label>
                 <select name="breakfast" id="breakfast" required>
                     <option value="Iekļauts" {{ $room->breakfast == 'Iekļauts' ? 'selected' : '' }}>Iekļauts</option>
                     <option value="Nav iekļauts" {{ $room->breakfast == 'Nav iekļauts' ? 'selected' : '' }}>Nav iekļauts</option>
@@ -74,10 +74,10 @@
             </div>
 
             <div>
-                <label for="image">Augšupielādēt bildi</label>
+                <label for="image">Augšupielādēt bildi:</label>
                 <input type="file" name="image" id="image" accept="image/*" >
                 @if($room->image)
-            <p>Tagadēja bilde:</p>
+            <p style= "font-weight:bold;">Tagadēja bilde:</p>
             <img src="{{ asset('storage/' . $room->image) }}" width="200">
         @endif
             </div>

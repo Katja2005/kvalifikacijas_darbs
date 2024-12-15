@@ -11,7 +11,7 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f4f8;
+            background-color: #f9f9f9;
             display: flex;
             flex-direction: column;
             justify-content: center;

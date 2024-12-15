@@ -138,8 +138,8 @@ button:hover {
 
 
         .reservation {
-            width: 100%;
-            max-width: 550px;
+            width: 80%;
+            max-width: 520px;
             background: white;
             border-radius: 15px;
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
@@ -155,18 +155,19 @@ button:hover {
         }
 
         .reservation label {
-            font-size: 1.1em;
-            font-weight: 600;
+            font-size: 20px;
+            font-weight:bold;
             color: black;
             text-align: left;
+           
         }
 
         .reservation input {
             padding: 12px;
-            border: 2px solid #ccc;
+            border: 1px solid #ccc;
             border-radius: 8px;
             font-size: 1em;
-            width: 100%;
+            width: 80%;
             box-sizing: border-box;
             transition: border-color 0.3s ease;
         }
@@ -226,6 +227,7 @@ button:hover {
         .container3{
             margin:20px;
             font-family:Arial, sans-serif;
+            margin-bottom: 40px;
         }
 
         .form{
@@ -236,8 +238,8 @@ button:hover {
             border: 1px solid #ddd;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            background-color: #2c3e50;;
-            color: white;
+            background-color: white;
+            color: black;
         }
 
 
@@ -274,6 +276,11 @@ button:hover {
         .form textarea{
             height: 100px;
             resize: vertical;
+        }
+
+        .form input:focus{
+            border-color: #2c3e50 ;
+            outline: none;
         }
 
         .panel {

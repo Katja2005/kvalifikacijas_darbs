@@ -11,8 +11,8 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f3f4f6;
-            color: #333;
+            background-color: #f9f9f9;
+            color: black;
         }
         .box {
             max-width: 1100px;
