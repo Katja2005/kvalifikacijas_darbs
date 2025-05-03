@@ -19,6 +19,7 @@
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     position: relative;
     flex-direction: column;
+    overflow: hidden;
 }
 
 
@@ -51,6 +52,7 @@
             </nav>
          
 
+
           
             
             <div class="header-nav">
@@ -76,7 +78,7 @@
                 
                 </div> 
                 </div>
-                <footer style="background-color:#2c3e50; color: white; padding: 15px 0; text-align: center;">
+                <footer>
     <p>&copy; 2024 Baltic Breeze Hotel. Visas tiesības aizsargātas.</p>
    
 </footer>

@@ -71,7 +71,17 @@
 <button type="submit">Rezervēt</button>
 
 </form>
-
+<div class="reserved-dates">
+@forelse($reservations as $reservation)
+        @if($reservation->status !== 'Atcelta' && $reservation->start_date && $reservation->end_date)
+            <p><strong>Šis numurs jau ir aizņemts šajās datumos:</strong></p>
+            <ul>
+                <li> No {{ \Carbon\Carbon::parse($reservation->start_date)->format('d.m.Y') }} līdz {{ \Carbon\Carbon::parse($reservation->end_date)->format('d.m.Y') }}</li>
+            </ul>
+        @endif
+    @empty
+        <p><strong>Šis numurs ir brīvs rezervācijām.</strong></p>
+    @endforelse
 </div>
 <script>
 

@@ -108,11 +108,27 @@ $reservation=Reservation::findOrFail($id);
    'status' => 'required|string|in:Apstrāde,Apstiprināta,Atcelta',
  ]);
 
- $reservation->update($data);
+ if ($data['status'] === 'Atcelta') {
+  
+   $reservation->update([
+       'status' => 'Atcelta',
+       'start_date' => null,
+       'end_date' => null,
+   ]);
+} else {
+   
+   $reservation->update($data);
+}
 return redirect()->route('reservations')->with('message', 'Rezervacijas statuss ir izmainīts');
 }
 
+public function deleteReservationn($id)
+{
+    $reservation = Reservation::findOrFail($id);
+    $reservation->delete();
 
+    return redirect()->back()->with('message', 'Rezervācija dzēsta veiksmīgi.');
+}
 
 public function userReviews(){
    $reviews= Review::with('user')->latest()->get();

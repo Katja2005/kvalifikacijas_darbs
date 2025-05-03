@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
         File::copy(public_path('images/Deluxe.jpg'), storage_path('app/public/images/Deluxe.jpg'));
         File::copy(public_path('images/standarts.jpg'), storage_path('app/public/images/standarts.jpg'));
 
-        User::factory()->create([
+        User::create([
             'name' => 'admin',
             'surname'=>'adminovic',
             'email' => 'admin@example.com',
@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
             'role' => 'admin',
             'password' => bcrypt('password')
         ]);
-            User::factory()->create([
+            User::create([
             'name' => 'user',
             'surname'=>'userovic',
             'email' => 'user@example.com',

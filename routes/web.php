@@ -40,6 +40,8 @@ Route::get('reservations',[AdminController::class,'reservations'])->name('reserv
 Route::put('/update-status/{id}', [AdminController::class,'updateStatus'])->name('update-status');
 Route::get('user-reviews', [AdminController::class,'userReviews'])->name('user-reviews');
 Route::delete('/delete-review/{id}', [AdminController::class,'deleteReview'])->name('delete-review');
+Route::delete('/reservations/{id}', [AdminController::class, 'deleteReservationn'])->name('delete-reservationn');
+
 });
 });
 

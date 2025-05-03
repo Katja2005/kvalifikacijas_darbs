@@ -23,7 +23,7 @@
    <div class="message">{{session()->get('message')}}</div> 
     @endif
     <div class="container3">
-        <h1>Lietotāju rezervācijas</h1>
+     <h1>Lietotāju rezervācijas</h1>
 <table class="table">
 <thead>
 <tr>
@@ -36,12 +36,13 @@
 <th>Iebraukšanas datums</th>
 <th>Izbraukšanas datums</th>
 <th>Kopejā cena</th>
+<th>Darbība</th>
 
 </tr>
 
 
 @foreach($reservations as $reservation)
-<tr>
+<tr class="{{ $reservation->status === 'Atcelta' ? 'cancelled-row' : '' }}">
 
 <td><form action="{{route('update-status', $reservation->id)}}" method="post" >
     @csrf
@@ -64,7 +65,16 @@
 <td>{{$reservation->start_date}}</td>
 <td>{{$reservation->end_date}}</td>
 <td>{{$reservation->total_price}} €</td>
-
+<td>
+@if ($reservation->status === 'Atcelta')
+                        
+<form action="{{ route('delete-reservationn', $reservation->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="delete-button" onclick="return confirm('Vai tiešām vēlies dzēst šo rezervāciju?')">Dzēst</button>
+                        </form>
+                        @endif
+</td>
 
 
 </tr>

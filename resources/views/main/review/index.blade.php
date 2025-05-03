@@ -63,8 +63,8 @@
             background: white;
             border: 1px solid #ddd;
             border-radius: 5px;
-            max-width: 32%;
-            margin-left:519px;
+            max-width: 35%;
+            margin-left:440px;
             margin-bottom: 30px;
             
 

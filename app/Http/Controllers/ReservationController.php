@@ -17,8 +17,15 @@ class ReservationController extends Controller
             return redirect()->route('login')->with('error', 'Lai veiktu rezervaciju,lūdzu,reģistrejies vai autorizejies');
         }
     $room=Room::find($id);
+
+    $reservations = Reservation::where('room_id', $room->id)
+    ->where('status', '!=', 'Atcelta')
+    ->whereNotNull('start_date')
+    ->whereNotNull('end_date')
+    ->get();
+
     
-    return view('main.reservation.create',compact('room'));
+    return view('main.reservation.create',compact('room', 'reservations'));
         }
 
 
