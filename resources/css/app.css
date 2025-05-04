@@ -445,3 +445,9 @@ footer {
     background-color: #c2f1c2;
     color: green;
 }
+
+
+.filter{
+    flex: auto;
+    gap: 4px; ;
+}
