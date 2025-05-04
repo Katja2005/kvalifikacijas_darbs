@@ -220,6 +220,10 @@ button:hover {
             color:black;
         }
 
+        .table tr{
+         border-bottom: 1px solid #ccc;;
+        }
+
         
         
 
@@ -436,5 +440,8 @@ footer {
 .cancelled-row {
     background-color: #ffe5e5;
     color: #990000;
-    font-weight: bold;
+}
+.confirmed-row {
+    background-color: #c2f1c2;
+    color: green;
 }

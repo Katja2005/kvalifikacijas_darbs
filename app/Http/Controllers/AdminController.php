@@ -66,6 +66,12 @@ public function editRoom($id){
 }
 
 
+
+
+
+
+
+
 public function updateRoom( Request $request, $id){
    $room = Room::find($id);
 
@@ -96,9 +102,17 @@ $room->update($data);
 
 
 
-public function reservations(){
+public function reservations(Request $request){
 
-   $reservations=Reservation::all();
+   $query = Reservation::with('user');
+
+    if ($request->has('status') && $request->status != '') {
+     
+        $query->where('status', $request->status);
+    }
+
+    $reservations = $query->get();
+
    return view('admin.reservation.index',compact('reservations'));
 }
 

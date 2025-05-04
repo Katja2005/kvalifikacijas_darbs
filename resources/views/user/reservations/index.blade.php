@@ -99,7 +99,10 @@
             </thead>
             <tbody>
 @foreach($reservations as $reservation)
-        <tr>
+        <tr class="{{ 
+    $reservation->status === 'Atcelta' ? 'cancelled-row' : 
+    ($reservation->status === 'Apstiprināta' ? 'confirmed-row' : '') 
+}}">
 
 <td>
     <form action="{{route('reservation-details', $reservation->id)}}" method="get">

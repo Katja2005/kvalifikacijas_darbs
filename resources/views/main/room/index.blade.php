@@ -34,7 +34,28 @@ h3{
         </div>
 
     <h1 class="room-title">Mūsu numuri</h1>
-  
+    <form method="GET" action="{{ route('rooms') }}">
+    <div>
+        <label for="breakfast">Brokastis:</label>
+        <select name="breakfast" id="breakfast"  required  onchange="this.form.submit()" >
+            <option value="">Visi</option>  
+            <option value="Iekļauts" {{ request('breakfast') == 'Iekļauts' ? 'selected' : '' }}>Iekļauts</option>
+            <option value="Nav iekļauts" {{ request('breakfast') == 'Nav iekļauts' ? 'selected' : '' }}>Nav iekļauts</option>
+        </select>
+    </div>
+
+
+
+    <div>
+        <label for="sort_price">Kārtot pēc cenas</label>
+        <select name="sort_price" id="sort_price"  onchange="this.form.submit()" >
+            <option value="">Bez kārtošanas</option>
+            <option value="asc" {{ request('sort_price') == 'asc' ? 'selected' : '' }}>No lētākā līdz dārgākajam</option>
+            <option value="desc" {{ request('sort_price') == 'desc' ? 'selected' : '' }}>No dārgākā līdz lētākajam</option>
+        </select>
+    </div>
+   
+</form>
 
     <div class="room-container">
         @foreach($rooms as $room)

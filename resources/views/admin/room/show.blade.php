@@ -50,6 +50,8 @@
             <form action="{{ route('edit-room', $room->id) }}" method="GET" >
             <button type="submit" class="delete">Rediģēt</button>
             </form>
+
+            
 </div>
             
 </td>

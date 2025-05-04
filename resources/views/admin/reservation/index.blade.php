@@ -24,6 +24,15 @@
     @endif
     <div class="container3">
      <h1>Lietotāju rezervācijas</h1>
+     <form method="GET" action="{{ route('reservations') }}">
+            <label for="status">Rezervācijas status:</label>
+            <select name="status" id="status" onchange="this.form.submit()">
+                <option value="">Visi</option>
+                <option value="Apstrāde" {{ request('status') == 'Apstrāde' ? 'selected' : '' }}>Apstrāde</option>
+                <option value="Apstiprināta" {{ request('status') == 'Apstiprināta' ? 'selected' : '' }}>Apstiprināta</option>
+                <option value="Atcelta" {{ request('status') == 'Atcelta' ? 'selected' : '' }}>Atcelta</option>
+            </select>
+        </form>
 <table class="table">
 <thead>
 <tr>
@@ -42,7 +51,10 @@
 
 
 @foreach($reservations as $reservation)
-<tr class="{{ $reservation->status === 'Atcelta' ? 'cancelled-row' : '' }}">
+<tr class="{{ 
+    $reservation->status === 'Atcelta' ? 'cancelled-row' : 
+    ($reservation->status === 'Apstiprināta' ? 'confirmed-row' : '') 
+}}">
 
 <td><form action="{{route('update-status', $reservation->id)}}" method="post" >
     @csrf

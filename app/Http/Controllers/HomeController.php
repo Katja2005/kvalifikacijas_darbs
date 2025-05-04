@@ -44,11 +44,21 @@ class HomeController extends Controller
         return view ('main.index',compact('rooms'));
      }
 
-     public function rooms(){
+     public function rooms(Request $request){
 
-        $rooms=Room::all();
-     
-     
+        //$rooms=Room::all();
+     $query = Room::query();
+     if ($request->has('breakfast') && $request->breakfast != '') {
+      $query->where('breakfast', $request->breakfast);
+  }
+  if ($request->filled('sort_price')) {
+   $query->orderBy('price', $request->sort_price); 
+}
+
+
+
+
+  $rooms = $query->get();
      
         return view ('main.room.index',compact('rooms'));
      }

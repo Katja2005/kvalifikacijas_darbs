@@ -76,7 +76,7 @@
         @if($reservation->status !== 'Atcelta' && $reservation->start_date && $reservation->end_date)
             <p><strong>Šis numurs jau ir aizņemts šajās datumos:</strong></p>
             <ul>
-                <li> No {{ \Carbon\Carbon::parse($reservation->start_date)->format('d.m.Y') }} līdz {{ \Carbon\Carbon::parse($reservation->end_date)->format('d.m.Y') }}</li>
+                <li> No {{ $reservation->start_date }} līdz {{ $reservation->end_date }}</li>
             </ul>
         @endif
     @empty
