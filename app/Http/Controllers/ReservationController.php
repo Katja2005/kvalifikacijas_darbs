@@ -20,8 +20,6 @@ class ReservationController extends Controller
 
     $reservations = Reservation::where('room_id', $room->id)
     ->where('status', '!=', 'Atcelta')
-    ->whereNotNull('start_date')
-    ->whereNotNull('end_date')
     ->get();
 
     

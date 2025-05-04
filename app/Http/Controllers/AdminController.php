@@ -125,9 +125,7 @@ $reservation=Reservation::findOrFail($id);
  if ($data['status'] === 'Atcelta') {
   
    $reservation->update([
-       'status' => 'Atcelta',
-       'start_date' => null,
-       'end_date' => null,
+       'status' => 'Atcelta'
    ]);
 } else {
    

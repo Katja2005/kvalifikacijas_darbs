@@ -73,16 +73,17 @@
 
 </form>
 <div class="reserved-dates">
-@forelse($reservations as $reservation)
-        @if($reservation->status !== 'Atcelta' && $reservation->start_date && $reservation->end_date)
+@if($reservations->count())
             <p><strong>Šis numurs jau ir aizņemts šajās datumos:</strong></p>
             <ul>
+                @foreach($reservations as $reservation)
                 <li> No {{ $reservation->start_date }} līdz {{ $reservation->end_date }}</li>
+                @endforeach
             </ul>
-        @endif
-    @empty
+       
+   @else
         <p><strong>Šis numurs ir brīvs rezervācijām.</strong></p>
-    @endforelse
+    @endif
 </div>
 
 </body>
