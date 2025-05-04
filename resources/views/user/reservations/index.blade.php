@@ -109,8 +109,8 @@
         <button type="submit">Detaļas</button>
     </form> 
 </td>
-<td>{{$reservation->start_date}}</td>
-<td>{{$reservation->end_date}}</td>
+<td>{{ \Carbon\Carbon::parse($reservation->start_date)->format('d.m.Y') }}</td>
+<td>{{ \Carbon\Carbon::parse($reservation->end_date)->format('d.m.Y') }}</td>
 <td class="total_price">{{$reservation->total_price}}€</td>
 <td>{{$reservation->status }}</td>
 <td>

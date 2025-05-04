@@ -35,19 +35,17 @@ $data = $request->validate([
 
          $room = Room::findOrFail($id);
             
-            $start=Carbon::parse($request->start_date);
-            $end=Carbon::parse($request->end_date);
+         $start = Carbon::createFromFormat('d.m.Y', $request->start_date);
+         $end = Carbon::createFromFormat('d.m.Y', $request->end_date);
+     
             
-            //ja cilvēks rezervē noteiktos datumos, tad cits cilvēks nevares tados datumos
-            $reserved = Reservation::where('room_id', $id)
-            ->where(function ($query) use ($start, $end) {
-                $query->whereBetween('start_date', [$start, $end])
-                      ->orWhereBetween('end_date', [$start, $end]) 
-                      ->orWhere(function ($query) use ($start, $end) {
-                          $query->where('start_date', '<=', $start)
-                                ->where('end_date', '>=', $end); 
-                      });
-            })->exists();
+            
+    $reserved = Reservation::where('room_id', $id)
+    ->where(function ($query) use ($start, $end) {
+        $query->where('start_date', '<', $end)
+              ->where('end_date', '>', $start);
+    })
+    ->exists();
             
             
             if($reserved){
@@ -63,7 +61,8 @@ $data = $request->validate([
             $data['total_price'] = $nights * $room->price;
             $data['user_id'] = auth()->id();
             
-
+            $data['start_date'] = $start->toDateString(); // Y-m-d
+            $data['end_date'] = $end->toDateString();
 
         Reservation::create($data);
     

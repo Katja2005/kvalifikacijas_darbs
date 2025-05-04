@@ -77,7 +77,7 @@
             <p><strong>Šis numurs jau ir aizņemts šajās datumos:</strong></p>
             <ul>
                 @foreach($reservations as $reservation)
-                <li> No {{ $reservation->start_date }} līdz {{ $reservation->end_date }}</li>
+                <li>  No {{ \Carbon\Carbon::parse($reservation->start_date)->format('d.m.Y') }} līdz {{ \Carbon\Carbon::parse($reservation->end_date)->format('d.m.Y') }}</li>
                 @endforeach
             </ul>
        

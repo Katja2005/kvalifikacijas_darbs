@@ -72,10 +72,10 @@
 <td>{{ $reservation->room_id }}</td>
 <td>{{ $reservation->user->name }}</td>
 <td>{{ $reservation->user->surname }}</td>
-<td>{{ $reservation->user->email }}</td>
+<td>{{ $reservation->user->email }}</td>    
 <td>{{ $reservation->user->phone }}</td>
-<td>{{$reservation->start_date}}</td>
-<td>{{$reservation->end_date}}</td>
+<td>{{ \Carbon\Carbon::parse($reservation->start_date)->format('d.m.Y') }}</td>
+<td>{{ \Carbon\Carbon::parse($reservation->end_date)->format('d.m.Y') }}</td>
 <td>{{$reservation->total_price}} €</td>
 <td>
 @if ($reservation->status === 'Atcelta')
