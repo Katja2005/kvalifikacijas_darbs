@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rezervacija</title>
     @vite('resources/css/app.css')
+    @vite('resources/js/app.js')
     <style>
  body {
             font-family: 'Arial', sans-serif;
@@ -83,21 +84,5 @@
         <p><strong>Šis numurs ir brīvs rezervācijām.</strong></p>
     @endforelse
 </div>
-<script>
 
-const today = new Date().toISOString().split('T')[0];
-
-//nevar izveleties pagajušas dienas un gadus, min-šodienas
- const startDate = document.getElementById('start_date');
- const endDate = document.getElementById('end_date');
-
-startDate.min=today;
-endDate.min=today;
-startDate.addEventListener('change', () => endDate.min = startDate.value);
-
-
-
-
-
-</script>   
 </body>
