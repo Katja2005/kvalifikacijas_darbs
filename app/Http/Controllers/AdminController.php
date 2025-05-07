@@ -122,15 +122,8 @@ $reservation=Reservation::findOrFail($id);
    'status' => 'required|string|in:Apstrāde,Apstiprināta,Atcelta',
  ]);
 
- if ($data['status'] === 'Atcelta') {
-  
-   $reservation->update([
-       'status' => 'Atcelta'
-   ]);
-} else {
-   
    $reservation->update($data);
-}
+
 return redirect()->route('reservations')->with('message', 'Rezervacijas statuss ir izmainīts');
 }
 

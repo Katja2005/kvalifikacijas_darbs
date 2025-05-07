@@ -38,15 +38,15 @@ class HomeController extends Controller
     
     
     public function main(){
-        $rooms=Room::all();
+       
      
      
-        return view ('main.index',compact('rooms'));
+        return view ('main.index');
      }
 
      public function rooms(Request $request){
 
-        //$rooms=Room::all();
+        
      $query = Room::query();
      if ($request->has('breakfast') && $request->breakfast != '') {
       $query->where('breakfast', $request->breakfast);
